@@ -1,0 +1,603 @@
+[
+    {
+      "name": "Warung Nasi Gudeg Bu Tjitro",
+      "address": "Jl. Janturan No. 36, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.5,
+      "latitude":"-7.7984359",
+      "longitude":"110.4001993",
+      "url":"https://goo.gl/maps/No8NGVjALSq5BN677",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM6YbwYeu2-UEqWl2tI-hufaHbv9mqr4-bNE6Dv=w408-h544-k-no"
+    },
+    {
+      "name": "Jejamuran Resto",
+      "address": "Jl. Magelang KM 9, Yogyakarta",
+      "cuisine": "Mushroom",
+      "rating": 4.2,
+      "latitude":"-7.7053761",
+      "longitude":"110.3585889",
+      "url":"https://goo.gl/maps/GNoC7QNHAsjjQrMm7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM6ylRYm2ZRM6LjkIm7jWDuJ9VCoRXBeYFF9MRd=w408-h306-k-no"
+    },
+    {
+      "name": "Mang Engking Soragan Castle",
+      "address": "Jl. Kemetiran Wetan No. 17, Yogyakarta",
+      "cuisine": "Seafood",
+      "rating": 4.0,
+      "latitude":"-7.7521131",
+      "longitude":"110.2667351",
+      "url":"https://goo.gl/maps/VhwiFJkABNtCvNeK6",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMOwfPnRaMfEpgUd_GKqbwrxgZKOWKel1en0P8a=w408-h306-k-no"
+    },
+    {
+      "name": "Sate Klatak Kambing Muda Pak Jeje",
+      "address": "Jl. Magelang, Sleman, Yogyakarta",
+      "cuisine": "Satay",
+      "rating": 4.8,
+      "latitude":"-7.7519391",
+      "longitude":"110.266735",
+      "url":"https://goo.gl/maps/FFjFhKpJVMYYevHj7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOby-_NDYRq5ISnzSrdrRje8z3EDGhG-cPtLnNp=w408-h306-k-no"
+    },
+    {
+      "name": "Jadah Tempe Mbah Carik",
+      "address": "Jl. Kaliurang KM 9,5, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.3,
+      "latitude":"-7.7514801",
+      "longitude":"110.1431209",
+      "url":"https://goo.gl/maps/BzFXidmNrVbsmmxt6",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM30ihYJRhHBRLkLSP2OK9ppq-mpjCC1ORxrZLe=w408-h306-k-no"
+    },
+    {
+      "name": "Gudeg Yu Djum",
+      "address": "Jl. Wijilan No. 167, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.7,
+      "latitude":"-7.8048001",
+      "longitude":"110.3564195",
+      "url":"https://goo.gl/maps/C4pFvmdXSFcgAsyv9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipO-iK5zYK-CBOlVZYXWzLks5_7OPsNJa06ITnWJ=w508-h240-k-no"
+    },
+    {
+      "name": "Kesuma Restaurant",
+      "address": "Jl. Prawirotaman No. 9B, Yogyakarta",
+      "cuisine": "International",
+      "rating": 4.4,
+      "latitude":"-7.82016",
+      "longitude":"110.3638586",
+      "url":"https://goo.gl/maps/UjN1UivkV7CNskbb7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipO2b3c0FJ2u4TC3paS6iG01D_8AWzWffbVcggs=w426-h240-k-no"
+    },
+    {
+      "name": "Lotek Colombo Bu Bagyo",
+      "address": "Jl. Colombo, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.6,
+      "latitude":"-7.7805708",
+      "longitude":"110.3617919",
+      "url":"https://goo.gl/maps/g8dkJddS6GvQrnz58",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOW9QOAqwPA6EQTBNU67ujRtiuhsqlbBXrYpNgs=w408-h544-k-no"
+    },
+    {
+      "name": "Gudeg Mbok Lindu",
+      "address": "Jl. Sosrowijayan No. 31, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.0,
+      "latitude":"-7.7922686",
+      "longitude":"110.3605681",
+      "url":"https://goo.gl/maps/uk2uNtbMAQ1udew37",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMvH2AMp4Qt1gpW4NqtHekYaPbSauakcJZQBIq3=w408-h544-k-no"
+    },
+    {
+      "name": "Roaster and Bear",
+      "address": "Jl. Tirtodipuran No. 3, Yogyakarta",
+      "cuisine": "Coffee Shop",
+      "rating": 4.8,
+      "latitude":"-7.7845593",
+      "longitude":"110.3646083",
+      "url":"https://goo.gl/maps/RPMm2Y4UdqDGXgK49",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMPCGqUczs3lHoY2KghicEoimzE0FfjnB6DH54r=w408-h271-k-no"
+    },
+    {
+      "name": "Bebek Goreng H. Slamet By Waroeng Ngampilan Yogyakarta",
+      "address": "Jl. Letjen Suprapto No.68, Ngampilan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55261",
+      "cuisine": "Bebel",
+      "rating": 4.5,
+      "latitude":"-7.7962885",
+      "longitude":"110.3542477",
+      "url":"https://goo.gl/maps/XXHfWVGf5PuF9S7Q8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPMWwwn0c1a1aLna8NATwdKY4YURMP8CEPhXIAk=w426-h240-k-no"
+    },
+    {
+      "name": "House of Raminten",
+      "address": "Jl. Faridan M Noto No. 7-9, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.2,
+      "latitude":"-7.7851773",
+      "longitude":"110.3688162",
+      "url":"https://goo.gl/maps/7YfsUTSq2hwDGBMu6",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipN56Jpyx9CCtFQom8QisX2vi2apDh_gqfnxABYS=w417-h240-k-no"
+    },
+    {
+      "name": "Sate Klathak Pak Pong",
+      "address": "Jl. Imogiri Timur KM 6,5, Bantul, Yogyakarta",
+      "cuisine": "Satay",
+      "rating": 4.3,
+      "latitude":"-7.869964",
+      "longitude":"110.3774441",
+      "url":"https://goo.gl/maps/kVRxMpH5ki5STzXY7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPrZ-cmOy64-qFX03IlmUDPfZRcfgrLYWOLVqUo=w426-h240-k-no"
+    },
+    {
+      "name": "Milk by Artemy",
+      "address": "Jl. Kranggan No.58, Cokrodiningratan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55233",
+      "cuisine": "Milk Bar",
+      "rating": 4.7,
+      "latitude":"-7.7755468",
+      "longitude":"110.332267",
+      "url":"https://goo.gl/maps/QdCWRT7tnNpvYLcP7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipP_5w0PhShwwlAtyEKJWRLQH6SzrVZTID4CoSOV=w408-h272-k-no"
+    },
+    {
+      "name": "Roemah Roepa",
+      "address": "Pogung Baru Blok E, nomer No.24, Pogung Kidul, Sinduadi, Kec. Mlati, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55284",
+      "cuisine": "Coffee Shop",
+      "rating": 4.5,
+      "latitude":"-7.0053273",
+      "longitude":"107.2782983",
+      "url":"https://goo.gl/maps/zwRNFevSyxfiHzgLA",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMxubihtP3sj4u7vpqGnAid5UIYUfMCq_e3Cm3D=w426-h240-k-no"
+    },
+    {
+      "name": "Mie Ayam Tumini",
+      "address": "Jl. Imogiri Tim. No.187, Giwangan, Kec. Umbulharjo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55163",
+      "cuisine": "Noodles",
+      "rating": 4.4,
+      "latitude":"-7.774725",
+      "longitude":"110.2870279",
+      "url":"https://goo.gl/maps/JDWyJV3wzHrYxZLX7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOhqrSlLpss-2oQnDfWg2CfyWxbbEwOINC88BAa=w408-h543-k-no"
+    },
+    {
+      "name": "Bale Raos Resto",
+      "address": "Jl. Magelang KM 4,5, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.6,
+      "latitude":"-7.8084443",
+      "longitude":"110.3606926",
+      "url":"https://goo.gl/maps/XgGagzFNBd8qkzbNA",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM7PwBiw6ppaRG-DjzhJ4L7tnSA8GGBGs8ik2N8=w408-h306-k-no"
+    },
+    {
+      "name": "Via Via Cafe",
+      "address": "Jl. Prawirotaman No. 30, Yogyakarta",
+      "cuisine": "International",
+      "rating": 4.2,
+      "latitude":"-7.8193455",
+      "longitude":"110.3689513",
+      "url":"https://goo.gl/maps/RbZWYRC5Y6MV2TnM7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPU033epB_djbb0WxQ4VzxAzRJzL8Y7eFE1OjCJ=w408-h306-k-no"
+    },
+    {
+      "name": "Warung Makan Khas Bali Putra Mande Jogja",
+      "address": "Jl. Namburan Kidul No.10, Panembahan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55131",
+      "cuisine": "Balinese",
+      "rating": 4.8,
+      "latitude":"-7.8126844",
+      "longitude":"110.3626103",
+      "url":"https://goo.gl/maps/rzT8y1T7syDRHzxKA",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPOpNSDB2BtaUTA-R9kucb1hgfoPfSN-d11_c3O=w426-h240-k-no"
+    },
+    {
+      "name": "Kopi DST",
+      "address": "Kasih, Tamantirto, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55184",
+      "cuisine": "Coffee Shop",
+      "rating": 4.1,
+      "latitude":"-7.8317521",
+      "longitude":"110.3221509",
+      "url":"https://goo.gl/maps/5pYAy2FZ5GmuAswc8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMawwNlsKZCYXeNsKcZWILYqehnGeB1nTBA-MpQ=w408-h725-k-no"
+    },
+    {
+      "name": "Soto Kadipiro",
+      "address": "Jl. Kadipiro No. 19A, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.3,
+      "latitude":"-7.8316597",
+      "longitude":"110.2835259",
+      "url":"https://goo.gl/maps/cCWgB8udvZaRzUVT7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipO29SbkRbGE0AorYVyGFnWcDGMxayae7uGyH-qG=w408-h306-k-no"
+    },
+    {
+      "name": "Lara Djonggrang Resto",
+      "address": "Jl. Magelang KM 4,5, Yogyakarta",
+      "cuisine": "Javanese",
+      "rating": 4.5,
+      "latitude":"-6.1941582",
+      "longitude":"106.8337912",
+      "url":"https://goo.gl/maps/cZcqxtCZHSsFYzdKA",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipN6vm1cq5PpwwpFiC9Jz6cHUHtHzHfqDGQ58OiC=w408-h270-k-no"
+    },
+    {
+      "name": "Dapoer Khayangan",
+      "address": "Turusan, Pendoworejo, Kec. Girimulyo, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55674",
+      "cuisine": "Javanese",
+      "rating": 4.0,
+      "latitude":"-7.3856847",
+      "longitude":"108.396488",
+      "url":"https://goo.gl/maps/GRNuwB5dnyLaZWms6",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPFkQ2OJXQXH1fPoxcj_xo9aEBBPQ2wa5B8YqeZ=w408-h544-k-no"
+    },
+    {
+      "name": "Kopi Ampirono",
+      "address": "65XR+WG9, Jl. Raya Kaligesing, Tileng, Pendoworejo, Kec. Girimulyo, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55674",
+      "cuisine": "Javanese",
+      "rating": 4.4,
+      "latitude":"-7.7502004",
+      "longitude":"110.1887905",
+      "url":"https://goo.gl/maps/kJafFf64MHhec48k9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipNTw_7-aIRnK6k4qTMS2-C0mbcEUYUvkRPN3fFC=w426-h240-k-no"
+    },
+    {
+      "name": "Secret Garden Coffee and Chocolate",
+      "address": "Jl. Prof. DR. Ki Amri Yahya No.2, Pakuncen, Wirobrajan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55253",
+      "cuisine": "Coffee Shop",
+      "rating": 4.6,
+      "latitude":"-7.8001518",
+      "longitude":"110.3492966",
+      "url":"https://goo.gl/maps/1kZpuZmXCniz5RwL7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipNo4yT7_s3NzPnQo0qMCwYbbgqCqtcvHZfm3Ntu=w426-h240-k-no"
+    },
+    {
+      "name": "Kumpeni Burgers, Gunung Sempu 1825",
+      "address": "Jl. Industri II, Kasih, Tamantirto, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55184",
+      "cuisine": "International",
+      "rating": 4.2,
+      "latitude":"-7.8349735",
+      "longitude":"110.3250153",
+      "url":"https://goo.gl/maps/N4JpE6dzGMNjBiHd7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipO-VypYjd_31TpvpVGMoB_LbsPRmZeHebWqiBPL=w426-h240-k-no"
+    },
+    {
+      "name": "Tempo Gelato",
+      "address": "Jl. Janturan No. 36, Yogyakarta",
+      "cuisine": "Ice Cream",
+      "rating": 4.5,
+      "latitude":"-7.8348811",
+      "longitude":"110.2863903",
+      "url":"https://goo.gl/maps/LkNaLpuZbR9fe6KY9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOqKmOt59ay_0mRfxWgHv_O354bbC9U4HZlmD-j=w427-h240-k-no"
+    },
+    {
+      "name": "Iga Sapi Bali",
+      "address": "Jl. Palagan Tentara Pelajar No.45, Ngetiran, Sariharjo, Kec. Sleman, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581",
+      "cuisine": "Balinese",
+      "rating": 4.7,
+      "latitude":"-7.7051222",
+      "longitude":"110.3833931",
+      "url":"https://goo.gl/maps/zuZKRHeNSpCK7fbK7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPG5DdBIsxs-cYak9JxSo57iGnXrVKW1yJZoKWg=w408-h544-k-no"
+    },
+    {
+      "name": "Epic Coffee",
+      "address": "Jl. Palagan Tentara Pelajar No.29, Mudal, Sariharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581",
+      "cuisine": "Coffee Shop",
+      "rating": 4.3,
+      "latitude":"-7.734102",
+      "longitude":"110.3750686",
+      "url":"https://goo.gl/maps/HZqscXu9vGPrit1U6",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMH1xJvXc53z5DnlrME-7_5lnCk6W7WN2mEOSak=w528-h240-k-no"
+    },
+    {
+      "name": "Ayam Goreng Jawa Mbah Cemplung",
+      "address": "Jl. Sembungan No.05, Sembungan, Bangunjiwo, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55184",
+      "cuisine": "Javanese",
+      "rating": 4.1,
+      "latitude":"-7.8394506",
+      "longitude":"110.3255342",
+      "url":"https://goo.gl/maps/oojyQtF22ChYvFJg7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPndk813magG7liU4PmdXHXfx9Yg4RWDsNb393O=w408-h306-k-no"
+    },
+    {
+      "name": "La Li Sa Farmer's Village Jogja",
+      "address": "Argosari, Kabupaten Bantul, Daerah Istimewa Yogyakarta",
+      "cuisine": "International",
+      "rating": 4.8,
+      "latitude":"-7.8202802",
+      "longitude":"110.2385304",
+      "url":"https://goo.gl/maps/kEnR3QXXQom3TsoV8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPnIrqc_KB_vETkjvVkXha3OGsVRB4XTj78iW_8=w408-h408-k-no"
+    },
+    {
+      "name": "Gudeg Pawon",
+      "address": "Jl. Prof. DR. Soepomo Sh UH/IV No.36, Warungboto, Kec. Umbulharjo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55164",
+      "cuisine": "Javanese",
+      "rating": 4.2,
+      "latitude":"-7.8057127",
+      "longitude":"110.3875647",
+      "url":"https://goo.gl/maps/3PsKDKdWcbq4vCaw8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM5K5Ix8YtzKlbb0_gUe_8jaqHlD1JdjO5uaGT4=w408-h311-k-no"
+    },
+    {
+      "name": "Banyu Mili Resto",
+      "address": "Jl. Nusa Indah, Kwarasan, Nogotirto, Kec. Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55592",
+      "cuisine": "Javanese",
+      "rating": 4.6,
+      "latitude":"-7.7759095",
+      "longitude":"110.3288446",
+      "url":"https://goo.gl/maps/yxrkTEJaB2iTuBqU9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMFHbVq9hrWLbdt9pQO-cAsdIQr3olwkZuo1qc-=w426-h240-k-no"
+    },
+    {
+      "name": "Waroeng SS Spesial Sambal",
+      "address": "Jl. Kyai Mojo No.68, Bener, Kec. Tegalrejo, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55244",
+      "cuisine": "Javanese",
+      "rating": 4.0,
+      "latitude":"-7.7757583",
+      "longitude":"110.2979445",
+      "url":"https://goo.gl/maps/VHXN5Kit4M6BNFqR9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPt5tZbUK0aQ_bbIcDoHZ3Crq6acrcswABzGjXo=w426-h240-k-no"
+
+    },
+    {
+      "name": "Couvee Ahmad Dahlan",
+      "address": "Jl. KH. Ahmad Dahlan No.90, Ngampilan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55261",
+      "cuisine": "Coffee Shop",
+      "rating": 4.4,
+      "latitude":"-7.8009812",
+      "longitude":"110.3560725",
+      "url":"https://goo.gl/maps/uHRuQ19aZauduR9Z7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMQpsNK_4hD8Dxq4mEnmu-2OVoxPs5s0NPYUHOM=w426-h240-k-no"
+    },
+    {
+      "name": "Kandang Ingkung Resto & Kopi",
+      "address": "RT.01, RW.27, Jitengan, Balecatur, Kec. Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55295",
+      "cuisine": "Javanese",
+      "rating": 4.7,
+      "latitude":"-7.8350573",
+      "longitude":"110.2702796",
+      "url":"https://goo.gl/maps/UmgPJ52urwNrNN1ZA",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipP-zEVweB0QrYR03cByhwdW2HsJ-KNX10TLjX9F=w408-h544-k-no"
+    },
+    {
+      "name": "Angkringan Gareng Petruk",
+      "address": "Jl. Margo Utomo No.30, Gowongan, Kec. Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55233",
+      "cuisine": "Javanese",
+      "rating": 4.3,
+      "latitude":"-7.7860407",
+      "longitude":"110.3642032",
+      "url":"https://goo.gl/maps/M51EzLEEgZDq2u9Z8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM-PKHVO-kUU6bfqCA2WYgxsMxWEvD8Jg9CHi-I=w408-h306-k-no"
+    },
+    {
+      "name": "Mie Gacoan Kotabaru",
+      "address": "Jl. Sudarso No.13, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224",
+      "cuisine": "Noodles",
+      "rating": 4.8,
+      "latitude":"-7.7854223",
+      "longitude":"110.3620651",
+      "url":"https://goo.gl/maps/8SKqcRxpnQkDmTPn7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipO10ICJwA4jihpR5MYqRj_qTqbh-mNo2eB95Qvu=w426-h240-k-no"
+    },
+    {
+      "name": "Bakmi Jowo Mbah Hadi",
+      "address": "Jl. C. Simanjuntak No.1, Terban, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55223",
+      "cuisine": "Javanese",
+      "rating": 4.2,
+      "latitude":"-7.7894421",
+      "longitude":"110.3620699",
+      "url":"https://goo.gl/maps/8PJ9JrnvwuqhySYX9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPhoEyNr1Kq86uwgp4RxQNQrtzn6iI8absG8MtJ=w408-h306-k-no"
+    },
+    {
+      "name": "Abhayagiri Resto",
+      "address": "Heritage Resort, Sumberwatu, RT.02/RW.01, Sumberwatu, Sambirejo, Kec. Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55571",
+      "cuisine": "Javanese",
+      "rating": 4.5,
+      "latitude":"-7.7573438",
+      "longitude":"110.4799671",
+      "url":"https://goo.gl/maps/CjLgbjNJyCB45Sa3A",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipM-f3fvlp-L3z4PyFw-rac3wWEp6xt2zKbmbt6j=w408-h306-k-no"
+    },
+    {
+      "name": "The Allabun Resto & Glamping",
+      "address": "Jl. Boyong, Wonorejo, Hargobinangun, Kec. Pakem, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55582",
+      "cuisine": "Javanese",
+      "rating": 4.0,
+      "latitude":"-7.618928",
+      "longitude":"110.4167745",
+      "url":"https://goo.gl/maps/Ytx3NMtFsSFfKdM16",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMeuhvzaKiFFA7S_99oAjdixKH1-A0U0hTA8t57=w408-h306-k-no"
+    },
+    {
+      "name": "Gudeg Permata",
+      "address": "Jl. Gajah Mada No.2, Gunungketur, Pakualaman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55111",
+      "cuisine": "Javanese",
+      "rating": 4.6,
+      "latitude":"-7.801181",
+      "longitude":"110.3706191",
+      "url":"https://goo.gl/maps/wuN4G5aX3sD3ZXEm6",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPSoTxy83x3O5amtUXRMsiy93eU1uD4W_DQpaf9=w408-h306-k-no"
+    },
+    {
+      "name": "Bubur Hayam Kotabaru",
+      "address": "Jl. Johar Nurhadi No.5, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224",
+      "cuisine": "Javanese",
+      "rating": 4.3,
+      "latitude":"-7.7841356",
+      "longitude":"110.3729406",
+      "url":"https://goo.gl/maps/ac2W3Ts48Y5ASBi2A",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOGp8-GcZuLqEKAaZnx0uBgmPnpKOAFRCRdsPXS=w408-h544-k-no"
+    },
+    {
+      "name": "Angkringan Kopi Joss Tiara",
+      "address": "Jl. Ps. Kembang, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271",
+      "cuisine": "Coffee Shop",
+      "rating": 4.1,
+      "latitude":"-7.7898",
+      "longitude":"110.3476499",
+      "url":"https://goo.gl/maps/31pQURVjzpe2NcWv9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMg7KZfpqqK2zkBwtPDGRaZFeI9O6ASnn_9b3JL=w408-h725-k-no"
+    },
+    {
+      "name": "Gudeg Sagan",
+      "address": "JL Prof. Dr Jl. Prof. Herman Yohanes No.53, Samirono, Caturtunggal, Depok, Sleman Regency, Special Region of Yogyakarta 55223",
+      "cuisine": "Javanese",
+      "rating": 4.7,
+      "latitude":"-7.7794753",
+      "longitude":"110.3774216",
+      "url":"https://goo.gl/maps/fNGK4e6ZeGvAQPBr5",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPOHbHiUSXwrrNOkK7BVmfQnCj7DJZ7UR9mLfVp=w408-h306-k-no"
+    },
+    {
+      "name": "Bakmi Jowo Mbah Gito",
+      "address": "Jl. Nyi Ageng Nis No.9, Rejowinangun, Kec. Kotagede, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55171",
+      "cuisine": "Noodles",
+      "rating": 4.2,
+      "latitude":"-7.7793857",
+      "longitude":"110.3375091",
+      "url":"https://goo.gl/maps/pxfTSpp32owLdbeK7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMcFRJJid4TBx6ZFsl8v7kAmdp7H2S5EBAc5fHs=w408-h306-k-no"
+    },
+    {
+      "name": "Soto Bathok Kangen nDeso",
+      "address": "Jl. Potorono, Kuden, Sitimulyo, Kec. Piyungan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55792",
+      "cuisine": "Javanese",
+      "rating": 4.5,
+      "latitude":"-7.8131889",
+      "longitude":"110.3559587",
+      "url":"https://goo.gl/maps/x9do5uJLRhs5JDGw9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPKBQkEadyMBZfX4CZclkSbyeK1dOy9UA_D5ApQ=w408-h725-k-no"
+    },
+    {
+      "name": "The Westlake Resto",
+      "address": "Bedog, Jl. Ringroad Barat, Baturan, Trihanggo, Kec. Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55291",
+      "cuisine": "Javanese",
+      "rating": 4.3,
+      "latitude":"-7.7474748",
+      "longitude":"110.3327503",
+      "url":"https://goo.gl/maps/Xi2XnEdSwvME9V7p8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipNyb5EbeWj86S-WreNgtm11ZeeDLEE_e4X-Fgad=w408-h264-k-no"
+    },
+    {
+      "name": "Kazu by Roka",
+      "address": "Jl. Godean No.19, Area Sawah, Sidomoyo, Kec. Godean, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55264",
+      "cuisine": "Noodles",
+      "rating": 4.6,
+      "latitude":"-7.781221",
+      "longitude":"110.3047201",
+      "url":"https://goo.gl/maps/sCDzsJeDrAKjcAz29",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMHmuF4ww2Kt0P-0QZ1OmzuM09xxqd_eB-gu1eU=w408-h305-k-no"
+    },
+    {
+      "name": "Omah Dhuwur Restaurant",
+      "address": "Jl. Mondorakan No.252, Bodon, Jagalan, Kec. Kotagede, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55192",
+      "cuisine": "Javanese",
+      "rating": 4.0,
+      "latitude":"-7.8274046",
+      "longitude":"110.3918213",
+      "url":"https://goo.gl/maps/GqRmSEcTdEnb7rtz9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMFxPDVATnuVtogwAC3yY4XA14QNTkFOS-09gIj=w408-h741-k-no"
+    },
+    {
+      "name": "Nilu Kopi",
+      "address": "Jl. Patih Singoranu No.99, Kragilan, Tamanan, Kec. Banguntapan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55191",
+      "cuisine": "Coffee Shop",
+      "rating": 4.7,
+      "latitude":"-7.827658",
+      "longitude":"110.3896982",
+      "url":"https://goo.gl/maps/LsfPmbKTsJyLZqqH7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPetEiTviMUFFd4xwrTSUXTzwvuaseFhm7ssyaO=w408-h306-k-no"
+    },
+    {
+      "name": "AYOM JOGJA",
+      "address": "Sukunan, Area Sawah, Banyuraden, Kec. Gamping, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55293",
+      "cuisine": "Javanese",
+      "rating": 4.2,
+      "latitude":"-7.7870519",
+      "longitude":"110.3348755",
+      "url":"https://goo.gl/maps/Yt8EhfThtuZpSgLL9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipNR4Ya-3bPvkybt_qxIBh_T7SZ6Jsyi0M4qEEN5=w426-h240-k-no"
+    },
+    {
+      "name": "Loko Coffee Shop Malioboro Yogyakarta",
+      "address": "Komp. Ps. Kembang, Jl. Ps. Kembang, Sosromenduran, Gedong Tengen, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55271",
+      "cuisine": "Coffee Shop",
+      "rating": 4.5,
+      "latitude":"-7.7870035",
+      "longitude":"110.3168507",
+      "url":"https://goo.gl/maps/e6XXS7wgzTNUvx3PA",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOe_ELst8g4oPgwjQfL71PfWzA9uwPTs8vFGTHz=w408-h544-k-no"
+    },
+    {
+      "name": "Legend Coffee",
+      "address": "Jl. Abu Bakar Ali No.24-26, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224",
+      "cuisine": "Coffee Shop",
+      "rating": 4.2,
+      "latitude":"-7.7881549",
+      "longitude":"110.3702191",
+      "url":"https://goo.gl/maps/DFefH1WkR7E6nWjh9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipN5j9jgEBbjZf40o-z5qC_2pgprBwaf-i_ViuPq=w427-h240-k-no"
+    },
+    {
+      "name": "Jeeva Yogyakarta",
+      "address": "Jl. Suhartono No.2, Kotabaru, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55224",
+      "cuisine": "Coffee Shop",
+      "rating": 4.8,
+      "latitude":"-7.7881549",
+      "longitude":"110.3702191",
+      "url":"https://goo.gl/maps/qgnzY9Fx5sjcEr4v5",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipMVmfETIovRx4eNPS9Hnd3qE0LotHgRPBO7S9tq=w408-h544-k-no"
+    },
+    {
+      "name": "Easy Garden Restaurant & Cafe",
+      "address": "Jl. Suryodiningratan No.10, Suryodiningratan, Kec. Mantrijeron, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55141",
+      "cuisine": "Coffee Shop",
+      "rating": 4.3,
+      "latitude":"-7.8189304",
+      "longitude":"110.3640544",
+      "url":"https://goo.gl/maps/cMUaP64YrmrYbgdf7",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipP2R5kgRuIdatbhjjWlwRsBAR2FaoVDOAds-3SG=w408-h544-k-no"
+    },
+    {
+      "name": "Wedangan Kampoeng",
+      "address": "Jl. Kaliurang No.KM.12,5, Candi Karang, Sardonoharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581",
+      "cuisine": "Javanese",
+      "rating": 4.1,
+      "latitude":"-7.7058752",
+      "longitude":"110.4011511",
+      "url":"https://goo.gl/maps/Gc6ZcLkcsRQtQByM9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipOUfx0AHOM8RvQ2jCKlUcwkbmwUMMl4I1JOlFxG=w408-h306-k-no"
+    },
+    {
+      "name": "ADA SaRanG",
+      "address": "Kalipakis, Tirtonirmolo, Kec. Kasihan, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55184",
+      "cuisine": "Coffee Shop",
+      "rating": 4.5,
+      "latitude":"-7.8120294",
+      "longitude":"110.3301682",
+      "url":"https://goo.gl/maps/1ouJHbtyWF5811hq8",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipP1iV5Av_H3qxYYTapOFmZj-CTiBw0xkt-HAfSQ=w408-h544-k-no"
+    },
+    {
+      "name": "Waroeng Klangenan",
+      "address": "Jl. Patangpuluhan No.28, Patangpuluhan, Wirobrajan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55251",
+      "cuisine": "Javanese",
+      "rating": 4.3,
+      "latitude":"-7.8070452",
+      "longitude":"110.3446963",
+      "url":"https://goo.gl/maps/j9awfBgihHA8iRHy5",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipPF2zJa49RughONec52ziuFNEwCuDe8EC5LB_7O=w426-h240-k-no"
+    },
+    {
+      "name": "Bakso Mie Ayam Pakde Wonogiri",
+      "address": "Karang Tengah Kidul, Margosari, Kec. Pengasih, Kabupaten Kulon Progo, Daerah Istimewa Yogyakarta 55652",
+      "cuisine": "Noodles",
+      "rating": 4.6,
+      "latitude":"-7.860244",
+      "longitude":"110.1715577",
+      "url":"https://goo.gl/maps/hTE8SLXUx88SSxGk9",
+      "image":"https://lh5.googleusercontent.com/p/AF1QipNG6wzXTF4E8KUGC1dKSxpiNdJJMByPZQZHHFE2=w408-h306-k-no"
+    }
+  ]

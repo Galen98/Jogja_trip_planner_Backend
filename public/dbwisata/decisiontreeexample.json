@@ -1,0 +1,6 @@
+[
+    { "weather": "Heavy rain", "type": "outdoor", "recommendation": "Not Recommended" },
+    { "weather": "Heavy rain", "type": "indoor", "recommendation": "Recommended" },
+    { "weather": "sunny", "type": "indoor", "recommendation": "Recommended" },
+    { "weather": "sunny", "type": "outdoor", "recommendation": "Recommended" }
+]

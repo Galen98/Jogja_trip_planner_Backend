@@ -1,0 +1,1 @@
+K Nearest Neighbors (k: 1, weighted: false, kernel: Euclidean)

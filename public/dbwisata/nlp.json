@@ -1,0 +1,14 @@
+[
+    {
+        "kategori": "wisata_alam",
+        "motivasi": "saya senang berada di alam bebas"
+    },
+    {
+        "kategori": "wisata_budaya",
+        "motivasi": "saya tertarik dengan budaya lokal"
+    },
+    {
+        "kategori": "wisata_kuliner",
+        "motivasi": "saya ingin mencicipi kuliner khas daerah"
+    }
+]

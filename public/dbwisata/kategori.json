@@ -1,0 +1,26 @@
+[
+    {
+        "id":"1",
+        "namakategori":"Wisata Alam",
+        "deskripsi":"Nikmati keindahan alam yang ada di Jogja dan nikmati aktivitas yang tersedia disana",
+        "image":"https://piknikwisata.com/wp-content/uploads/2019/11/harga-tiket-pantai-parangtritis.jpg"
+    },
+    {
+        "id":"2",
+        "namakategori":"Wisata Budaya & Edukasi",
+        "deskripsi":"Kunjungi beragam wisata budaya dan sejarah yang bisa anda pelajari",
+        "image":"http://103.82.92.84/public/img/1692979005_1686443486_65765.webp"
+    },
+    {
+        "id":"3",
+        "namakategori":"Wisata Belanja",
+        "deskripsi":"Tersedia beragam kerajinan khas Jogja yang unik",
+        "image":"http://103.82.92.84/public/img/1686228051_yogyakarta-rickshaw1.jpg"
+    },
+    {
+        "id":"4",
+        "namakategori":"Wisata Buatan",
+        "deskripsi":"Nikmati wisata buatan yang indah dan menakjubkan",
+        "image":"https://images.unsplash.com/photo-1632645375703-c25646f3844d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+    }
+]
