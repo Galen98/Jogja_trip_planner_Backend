@@ -1,0 +1,32 @@
+[
+    {
+        "nama":"Elf long",
+        "image":"https://mitrabuanatrans.co.id/wp-content/uploads/2022/01/elf.jpeg",
+        "nomorwa":"https://wa.me/62895401970010",
+        "kapasitas":"<50"
+    },
+    {
+        "nama":"Hiace",
+        "image":"https://cdn1-production-images-kly.akamaized.net/Yb2Y7mWzeOztRV5QIWGQxgEtyRk=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2519009/original/022419300_1544373208-Toyota_Hiace.jpg",
+        "nomorwa":"https://wa.me/62895401970010",
+        "kapasitas":"<50"
+    },
+    {
+        "nama":"Medium Bus",
+        "image":"https://www.busbeetrans.co.id/assets/images/bus/medium_bus_df5.jpg",
+        "nomorwa":"https://wa.me/62895401970010",
+        "kapasitas":"<50"
+    },
+    {
+        "nama":"Medium Bus",
+        "image":"https://www.busbeetrans.co.id/assets/images/bus/medium_bus_df5.jpg",
+        "nomorwa":"https://wa.me/62895401970010",
+        "kapasitas":">50"
+    },
+    {
+        "nama":"Big Bus",
+        "image":"https://www.busbeetrans.co.id/assets/images/bus/big_bus_jetbus_2__3ca.jpg",
+        "nomorwa":"https://wa.me/62895401970010",
+        "kapasitas":">50"
+    }
+]

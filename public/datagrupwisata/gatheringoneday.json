@@ -1,0 +1,83 @@
+{
+    "trip_plan": [
+      {
+        "Hari": "Pertama",
+        "Aktivitas": {
+            "08.00": {
+                "kegiatan": "Titik jemput di stasiun Lempuyangan, menuju puncak Becici",
+                "namawisata":"Stasiun Lempuyangan",
+                "id": "",
+                "jamoperasional":"",
+                "latitude": "-7.7902646",
+                "longitude": "110.3731824",
+                "image":"https://lh5.googleusercontent.com/p/AF1QipMZnbwzzr3_sEclSCXqtMhQNvcAEOX2XTMytFj2=w408-h306-k-no",
+                "maps":"https://goo.gl/maps/ByvHFGe7Brf34wXs7",
+                "kategori":"",
+                "notelfon":""
+              },
+              "09.00": {
+                "kegiatan": "Outbond di puncak Becici",
+                "namawisata":"Puncak Becici",
+                "id": "177",
+                "jamoperasional":"Senin-Minggu 06.00-22.00",
+                "latitude": "-7.9020302",
+                "longitude": "110.4348878",
+                "image":"https://lh5.googleusercontent.com/p/AF1QipN_hE1DUhJLEwGcsdIS5blm4fFG51wzbFk5yT4Y=w408-h277-k-no",
+                "maps":"https://goo.gl/maps/7w1eXvMh5qyZAEwX9",
+                "kategori":"Wisata Alam",
+                "notelfon":""
+              },
+              "12.00": {
+                "kegiatan": "Makan siang di Rumah makan becici",
+                "namawisata":"Warung Makan Mbak Citra Becici",
+                "id": "",
+                "jamoperasional":"Sesuai perjanjian",
+                "latitude": "-7.9014988",
+                "longitude": "110.434851",
+                "image":"https://lh5.googleusercontent.com/p/AF1QipN5raTqFQtNqrtpn7OWiNeqjumt_nE-gPsTU3cY=w408-h306-k-no",
+                "maps":"https://goo.gl/maps/d9eCoqbURj1fdYLN9",
+                "kategori":"Kuliner",
+                "notelfon":"wa.me/6282223790600"
+              },
+              "13.00": {
+                "kegiatan": "Bersantai di Pantai Drini",
+                "namawisata":"Pantai Drini",
+                "id": "24",
+                "jamoperasional":"Buka 24 Jam",
+                "latitude": "-8.1384509",
+                "longitude": "110.577522",
+                "image":"https://lh5.googleusercontent.com/p/AF1QipOOnCh4zKz485NUWiLB6f_Lbup3p_UU_M20_xPH=w408-h306-k-no",
+                "maps":"https://goo.gl/maps/VHPGtkMuDvz5r8eHA",
+                "kategori":"Kuliner",
+                "notelfon":""
+              },
+              "17.00": {
+                "kegiatan": "Makan dan menikmati kota Jogja di ‘The Manglung View & Resto’",
+                "namawisata":"The Manglung View & Resto",
+                "id": "",
+                "jamoperasional":"",
+                "latitude": "-7.8449236",
+                "longitude": "110.4799996",
+                "image":"https://lh5.googleusercontent.com/p/AF1QipOb_DZboF14yjNUuDYVDrMK0X0QuvvtvYn6uAL1=w408-h306-k-no",
+                "maps":"https://goo.gl/maps/FE1Dw8pYniNZUF4F6",
+                "kategori":"Kuliner",
+                "notelfon":"wa.me/6285878967893"
+              }
+              ,
+              "19.00": {
+                "kegiatan": "Kembali ke Stasiun",
+                "namawisata":"Stasiun Lempuyangan",
+                "id": "",
+                "jamoperasional":"",
+                "latitude": "-7.7902646",
+                "longitude": "110.3731824",
+                "image":"https://lh5.googleusercontent.com/p/AF1QipMZnbwzzr3_sEclSCXqtMhQNvcAEOX2XTMytFj2=w408-h306-k-no",
+                "maps":"https://goo.gl/maps/ByvHFGe7Brf34wXs7",
+                "kategori":"",
+                "notelfon":""
+              }
+        }
+      }
+    ]
+  }
+  

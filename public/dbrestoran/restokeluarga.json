@@ -1,0 +1,299 @@
+[
+
+    {
+      "nama": "The House Of Raminten",
+      "masakan": "Nusantara",
+      "rating": "4.5",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipN56Jpyx9CCtFQom8QisX2vi2apDh_gqfnxABYS=w417-h240-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7851826",
+      "longitude": "110.3688162",
+      "maps": "https://goo.gl/maps/dEnBaN9PbGm7JzpcA",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Bale Raos-The Sultan's Dishes",
+      "masakan": "Nusantara",
+      "rating": "4.5",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNBUBccX7qzLXFHIuAQyBh4bkdevwaDX4zL7lvu=w408-h725-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.8084365",
+      "longitude": "110.3603766",
+      "maps": "https://goo.gl/maps/7yH3Gzr66y2Zt8NS7",
+      "rekomendasi": "malam",
+      "grup": "1"
+    },
+    {
+      "nama": "Banyu Mili Resto",
+      "masakan": "Seafood",
+      "rating": "4.4",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMFHbVq9hrWLbdt9pQO-cAsdIQr3olwkZuo1qc-=w426-h240-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7759095",
+      "longitude": "110.3437792",
+      "maps": "https://goo.gl/maps/grSkW4hqPVwv5kfKA",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Raminten Kitchen",
+      "masakan": "Jawa",
+      "rating": "4.3",
+      "harga": "$$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNrOC8bKMGSCI7m2e7gSsA1tGp8eqUR9uuqj6X4=w408-h338-k-no",
+      "tipe": "mewah",
+      "latitude": "-7.8274099",
+      "longitude": "110.3695358",
+      "maps": "https://goo.gl/maps/wYSkoUjjBMr9JbKt9",
+      "rekomendasi": "pagi",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Gudeg Yu Djum",
+      "masakan": "Khas",
+      "rating": "4.3",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNMTk9uvmjsqtzTRwAOEb5MOYL758vLFdQ4nqjg=w408-h544-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7939226",
+      "longitude": "110.3477404",
+      "maps": "https://goo.gl/maps/2KsRUYjJmRftTGcSA",
+      "rekomendasi": "malam",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Gudeg Yu Narni Tugu",
+      "masakan": "Khas",
+      "rating": "4.4",
+      "harga": "$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMWMy8RAA2kpMnd0-bhTYRD2y2ohR_MV4fvvq8y=w408-h306-k-no",
+      "tipe": "murah",
+      "latitude": "-7.783978",
+      "longitude": "110.3645859",
+      "maps": "https://goo.gl/maps/8RJpg2kpnXoGeXyX6",
+      "rekomendasi": "siang",
+      "grup": "0"
+    },
+
+    {
+      "nama": "Warung Nasi Gudeg Bu Tjitro",
+      "masakan": "Khas",
+      "rating": "4.5",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM6YbwYeu2-UEqWl2tI-hufaHbv9mqr4-bNE6Dv=w408-h544-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7984412",
+      "longitude": "110.3852647",
+      "maps": "https://goo.gl/maps/No8NGVjALSq5BN677",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+    {
+      "nama": "Jejamuran Resto",
+      "masakan": "Jawa",
+      "rating": "4.2",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM6ylRYm2ZRM6LjkIm7jWDuJ9VCoRXBeYFF9MRd=w408-h306-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7053814",
+      "longitude": "110.3585889",
+      "maps": "https://goo.gl/maps/GNoC7QNHAsjjQrMm7",
+      "rekomendasi": "malam",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Jadah Tempe Mbah Carik",
+      "masakan": "Jawa",
+      "rating": "4.3",
+      "harga": "$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM30ihYJRhHBRLkLSP2OK9ppq-mpjCC1ORxrZLe=w408-h306-k-no",
+      "tipe": "murah",
+      "latitude": "-7.6805474",
+      "longitude": "110.3487816",
+      "maps": "https://goo.gl/maps/BzFXidmNrVbsmmxt6",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+
+
+    {
+      "nama": "Soto Kadipiro",
+      "masakan": "Jawa",
+      "rating": "4.3",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipO29SbkRbGE0AorYVyGFnWcDGMxayae7uGyH-qG=w408-h306-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.8317554",
+      "longitude": "110.2858219",
+      "maps": "https://goo.gl/maps/cCWgB8udvZaRzUVT7",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Dapoer Khayangan",
+      "masakan": "Jawa",
+      "rating": "4",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipPFkQ2OJXQXH1fPoxcj_xo9aEBBPQ2wa5B8YqeZ=w408-h544-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7456248",
+      "longitude": "110.1787921",
+      "maps": "https://goo.gl/maps/GRNuwB5dnyLaZWms6",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+
+
+    {
+      "nama": "Lalawuh Sunda",
+      "masakan": "International",
+      "rating": "4.8",
+      "harga": "$$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMse3PdzxXC5_Z7gXpem1aO0L9opYM2Z9iQLwOz=w427-h240-k-no",
+      "tipe": "mewah",
+      "latitude": "-7.7800621",
+      "longitude": "110.347637",
+      "maps": "https://maps.app.goo.gl/kQjrPVcydNGw6J7C8",
+      "rekomendasi": "siang",
+      "grup": "1"
+    },
+    {
+      "nama": "Banyu Mili Resto",
+      "masakan": "Jawa",
+      "rating": "4.6",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMFHbVq9hrWLbdt9pQO-cAsdIQr3olwkZuo1qc-=w426-h240-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7759095",
+      "longitude": "110.3437792",
+      "maps": "https://goo.gl/maps/yxrkTEJaB2iTuBqU9",
+      "rekomendasi": "pagi",
+      "grup": "1"
+    },
+
+    {
+      "nama": "Abhayagiri Resto",
+      "masakan": "Jawa",
+      "rating": "4.5",
+      "harga": "$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipM-f3fvlp-L3z4PyFw-rac3wWEp6xt2zKbmbt6j=w408-h306-k-no",
+      "tipe": "sedang",
+      "latitude": "-7.7686119",
+      "longitude": "110.4940905",
+      "maps": "https://goo.gl/maps/CjLgbjNJyCB45Sa3A",
+      "rekomendasi": "malam",
+      "grup": "1"
+    },
+    {
+      "nama": "The Allabun Resto & Glamping",
+      "masakan": "Jawa",
+      "rating": "4",
+      "harga": "$$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipMeuhvzaKiFFA7S_99oAjdixKH1-A0U0hTA8t57=w408-h306-k-no",
+      "tipe": "mewah",
+      "latitude": "-7.6189333",
+      "longitude": "110.4167745",
+      "maps": "https://goo.gl/maps/Ytx3NMtFsSFfKdM16",
+      "rekomendasi": "malam",
+      "grup": "1"
+    },
+
+
+    {
+      "nama": "The Westlake Resto",
+      "masakan": "Jawa",
+      "rating": "4.3",
+      "harga": "$$$",
+      "image": "https://lh5.googleusercontent.com/p/AF1QipNyb5EbeWj86S-WreNgtm11ZeeDLEE_e4X-Fgad=w408-h264-k-no",
+      "tipe": "mewah",
+      "latitude": "-7.7474748",
+      "longitude": "110.3350463",
+      "maps": "https://goo.gl/maps/Xi2XnEdSwvME9V7p8",
+      "rekomendasi": "malam",
+      "grup": "1"
+    },
+    
+  {
+
+    "nama": "Warung Watoe Gadjah",
+    "latitude": "-7.7104269",
+    "longitude": "110.3928362",
+    "masakan": "Jawa",
+    "rating": "4.3",
+    "harga": "$$$",
+    "image": "https://lh5.googleusercontent.com/p/AF1QipOPKxBi-43m-Jqc4FVbRSBwp1IdB-fIpc_4KZ0v=w408-h306-k-no",
+    "maps": "https://maps.app.goo.gl/uy8DME6vB2pmi1SDA",
+    "rekomendasi": "pagi"
+  },
+  {
+  
+    "nama": "De MANGOL VIEW",
+    "latitude": "-7.8388793",
+    "longitude": "110.4870662",
+    "masakan": "Jawa",
+    "rating": "4.3",
+    "harga": "$$$",
+    "image": "https://lh5.googleusercontent.com/p/AF1QipNV1l_H7yoKM-nuFuB-CqJOiseQU5E4c_mUCeiJ=w426-h240-k-no",
+    "maps": "https://maps.app.goo.gl/ijd85qVFHDfk9Cgs5",
+    "rekomendasi": "siang"
+  },
+  {
+   
+    "nama": "Kopi Legi",
+    "latitude": "-7.7822593",
+    "longitude": "110.4353988",
+    "masakan": "Jawa",
+    "rating": "4.3",
+    "harga": "$$$",
+    "image": "https://lh5.googleusercontent.com/p/AF1QipNzFFH8X6p7zuKn3qLANbuIOEE7S5ohdvz_WYeL=w408-h272-k-no",
+    "maps": "https://maps.app.goo.gl/myF8giMv2b8rhEpJA",
+    "rekomendasi": "malam"
+  },
+  {
+    
+    "nama": "AMURWA Garden & Resto",
+    "latitude": "-7.6761476",
+    "longitude": "110.414833",
+    "masakan": "Jawa",
+    "rating": "4.3",
+    "harga": "$$$",
+    "image": "https://lh5.googleusercontent.com/p/AF1QipOnUpB4Qfjtvl0MyM5HMFASCAqFxN71jLAX6rnk=w426-h240-k-no",
+    "maps": "https://maps.app.goo.gl/gFKqDgwSbkP4NGRXA",
+    "rekomendasi": "siang"
+  },
+  {
+
+    "nama": "Mbah Bayan Jogja",
+    "latitude": "-7.735152",
+    "longitude": "110.3240844",
+    "masakan": "Jawa",
+    "rating": "4.3",
+    "harga": "$$$",
+    "image": "https://lh5.googleusercontent.com/p/AF1QipMLwoQUXJuJeotw2mi5GKLqON7usFTHZQLlk-0=w425-h240-k-no",
+    "maps": "https://maps.app.goo.gl/sT3sLcdzuurHUDD38",
+    "rekomendasi": "malam"
+  },
+  {
+ 
+    "nama": "Sendang Ayu Rumah Makan dan Pemancingan",
+    "latitude": "-7.7609855",
+    "longitude":"110.4734577",
+    "masakan": "Jawa",
+    "rating": "4.3",
+    "harga": "$$$",
+    "image": "https://lh5.googleusercontent.com/p/AF1QipN1PYx1S9U4zP0NkdxrXmpvnnzMEd4XW5XgpRXL=w408-h544-k-no",
+    "maps": "https://maps.app.goo.gl/c7gDEVSYNLLdWLSx8",
+    "rekomendasi": "siang"
+  }
+
+  ]

@@ -8,6 +8,7 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 use App\Models\Kategori;
 use Illuminate\Support\Carbon;
 use App\Models\UserLike;
+use App\Models\History;
 use Illuminate\Support\Facades\Auth;
 use Rubix\ML\Transformers\OneHotEncoder;
 use Rubix\ML\Persisters\Serialize;
@@ -37,7 +38,7 @@ class WisataController extends Controller
         $nearestDistance = [];
 
         foreach ($locations as $location) {
-            $distance = $this->haversineDistance($latitude, $longitude, $location['latitude'], $location['longitude']);
+            $distance = $this->haversineDistances($latitude, $longitude, $location['latitude'], $location['longitude']);
 
             if ($distance <= $radius) {
                 $location['distance'] = $distance;
@@ -71,6 +72,10 @@ class WisataController extends Controller
     }
 
     private function haversineDistances($lat1, $lon1, $lat2, $lon2) {
+        $lat1 = floatval($lat1);
+        $lon1 = floatval($lon1);
+        $lat2 = floatval($lat2);
+        $lon2 = floatval($lon2);
         $earthRadius = 6371; // Earth's radius in kilometers
     
         $latDelta = deg2rad($lat2 - $lat1);
@@ -86,165 +91,770 @@ class WisataController extends Controller
     
         return $distance;
     }
+
+    private function haversineDistancee($lat1, $lon1, $lat2, $lon2) {
+        $earthRadius = 6371; // Earth's radius in kilometers
+    
+        $latDelta = deg2rad($lat2 - $lat1);
+        $lonDelta = deg2rad($lon2 - $lon1);
+    
+        $a = sin($latDelta / 2) * sin($latDelta / 2) +
+             cos(deg2rad($lat1)) * cos(deg2rad($lat2)) *
+             sin($lonDelta / 2) * sin($lonDelta / 2);
+    
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+    
+        $distance = $earthRadius * $c;
+    
+        return $distance;
+    }
+
+    function cariRestoranTerdekat(
+        $userLatitude,
+        $userLongitude,
+        $slot,
+        $visitedAttractions,
+        $resto
+    ) {
+        $nearestRestaurant = null;
+        $minDistance = PHP_FLOAT_MAX;
+        $filteredRestaurants = array_filter($resto, function ($restaurant) use ($slot) {
+            return $restaurant['rekomendasi'] === $slot;
+        });
+    
+        foreach ($visitedAttractions as $visitedAttraction) {
+            foreach ($filteredRestaurants as $restaurant) {
+                $distance = haversineDistances(
+                    $visitedAttraction['latitude'],
+                    $visitedAttraction['longitude'],
+                    $restaurant['latitude'],
+                    $restaurant['longitude']
+                );
+    
+                if ($distance < $minDistance) {
+                    $minDistance = $distance;
+                    $nearestRestaurant = $restaurant;
+                }
+            }
+        }
+    
+        return $nearestRestaurant;
+    }
+
+    public function tripGrup(Request $request){
+    $jumlahHariWisata = $request->input('jumlah_hari');
+    $transport = $request->input('transport');
+    $tipewisata = $request->input('tipe_wisata');
+    $userLatitude = deg2rad(-7.7892805);
+    $userLongitude = deg2rad(110.3608548);
+    $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($restoran, true);
+    $hotel = \File::get(base_path('public/dbhotel/hotelgrup.json'));
+    $hotels = json_decode($hotel,true);
+
+    $mobil = \File::get(base_path('public/dbtransport/trnsportgrup.json'));
+    $oleh = \File::get(base_path('public/dbwisata/wisataoleholeh.json'));
+    $oleholeh = json_decode($oleh, true);
+    $mobils = json_decode($mobil,true);   
+
+    if($tipewisata == 'Gathering'){
+        $placez = \File::get(base_path('public/dbwisata/wisatagrup.json'));
+        $places = json_decode($placez, true);
+    }
+
+    if($tipewisata == 'Study_Tour'){
+        $placez = \File::get(base_path('public/dbwisata/wisataedukasi.json'));
+        $places = json_decode($placez, true);
+    }
+
+    foreach ($places as $location) {
+        $locationLat = deg2rad($location['latitude']);
+        $locationLon = deg2rad($location['longitude']); 
+
+        $distance = $this->haversineDistance($userLatitude, $userLongitude, $locationLat, $locationLon);
+
+        $location['distance'] = $distance; 
+        $locationsWithDistance[] = $location;
+    }
+
+    $orderedPlaces = $locationsWithDistance;
+    usort($orderedPlaces, function ($a, $b) {
+        return $a['distance'] <=> $b['distance']; 
+    });
+
+$tripPlan = [];
+$placesPerDay = array_chunk($orderedPlaces, 2);
+$timeslots = ['pagi', 'siang', 'malam'];
+$timeslotsMakan = ['MakanPagi', 'MakanSiang', 'MakanMalam'];
+$hotelStatus = 'Check in hotel'; 
+$firstDay = true;
+$visitedRestaurants = [];
+$visitedKuliner = [];
+$visitedOleh = [];
+$visitedAttractionsToday = [];
+for ($day = 0; $day < $jumlahHariWisata; $day++) {
+    if (isset($placesPerDay[$day])) {
+        $places = $placesPerDay[$day];
+        $dailyPlan = [];
+        foreach ($timeslots as $index => $slot) {
+            if (isset($places[$index]) && $places[$index] !== 'Tidak ada aktivitas wisata.') {
+                
+                if ($slot === 'pagi' && $firstDay) {
+
+                    if($transport == 'Kurang dari 50'){
+                        if($places[0]){
+                            $filteredMobil = array_filter($mobils, function ($kapasitas){
+                                return in_array($kapasitas['kapasitas'], ['<50']);
+                            });
+                            $dailyPlan['mobil'] = $filteredMobil;
+                        }
+                    }
+                    if($transport == 'Lebih dari 50'){
+                        if($places[0]){
+                            $filteredMobil = array_filter($mobils, function ($kapasitas){
+                                return in_array($kapasitas['kapasitas'], ['>50']);
+                            });
+                            $dailyPlan['mobil'] = $filteredMobil;
+                        }
+                    }
+                    
+                    $nearestHotel = null;
+                    $minHotelDistance = PHP_FLOAT_MAX;
+                    $minDistance = PHP_FLOAT_MAX;
+                
+        
+                    foreach ($hotels as $hotel) {
+                        $distance = $this->haversineDistances($places[0]['latitude'], $places[0]['longitude'], $hotel['latitude'], $hotel['longitude']);
+
+                        if ($distance < $minHotelDistance) {
+                            $minHotelDistance = $distance;
+                            $nearestHotel = $hotel;
+                        }
+                    }
+
+                    if ($nearestHotel) {
+                        $dailyPlan['Hotel'] = $nearestHotel;
+                        $hotelStatus = 'Persiapan ke lokasi wisata'; 
+                    }
+
+                    $firstDay = false; 
+                }
+               
+                $dailyPlan[$slot] = $places[$index];
+                if ($slot === 'siang') {
+                    $nearestOleh = null;
+                    $minDistance = PHP_FLOAT_MAX;
+
+                    foreach ($oleholeh as $olehan) {
+                        $distance = $this->haversineDistances($places[$index]['latitude'], $places[$index]['longitude'], $olehan['latitude'], $olehan['longitude']);
+                    
+                        if ($distance < $minDistance && !in_array($olehan['nama'], $visitedOleh)) {
+                            $minDistance = $distance;
+                            $nearestOleh = $olehan;
+                        }
+                    }
+
+                    if ($nearestOleh) {
+                        $dailyPlan["wisataoleholeh"] = $nearestOleh;
+                        $visitedOleh[$day][] = $nearestOleh;
+                        $oleholeh = array_filter($oleholeh, function ($olehan) use ($nearestOleh) {
+                            return $olehan['nama'] !== $nearestOleh['nama'];
+                        });
+                    }
+                }
+
+                
+                $nearestRestaurant = null;
+                $nearestKuliner = null;
+                $nearestOleh = null;
+                $minDistance = PHP_FLOAT_MAX;
+
+                $filteredRestaurants = array_filter($resto, function ($grup){
+                    return in_array($grup['grup'], ['1']);
+                });
+
+
+                foreach ($filteredRestaurants  as $restaurant) {
+                        $distance = $this->haversineDistances($places[$index]['latitude'], $places[$index]['longitude'], $restaurant['latitude'], $restaurant['longitude']);
+                        if ($distance < $minDistance && !in_array($restaurant['nama'], $visitedRestaurants)) {
+                            $minDistance = $distance;
+                            $nearestRestaurant = $restaurant;
+                        }
+                }
+
+                if ($nearestRestaurant) {
+                    $dailyPlan["Makan$slot"] = $nearestRestaurant;
+                    $visitedRestaurants[$day][] = $nearestRestaurant;
+                    $resto = array_filter($resto, function ($restaurant) use ($nearestRestaurant) {
+                        return $restaurant['nama'] !== $nearestRestaurant['nama'];
+                    });
+                }
+            } 
+        }
+        if (!isset($dailyPlan['Hotel'])) {
+            $dailyPlan['Hotel'] = $hotelStatus;
+        }
+        
+        $dailyPlan['Malam'] = 'Kembali ke hotel';
+
+        
+        $tripPlan[] = [
+            'Hari' => $day + 1,
+            'Tempatwisata' => $dailyPlan ,
+        ];
+    }
+}
+
+$itineraryId = 'IT_' . uniqid(); 
+return response()->json([
+    'trip_plan' => $tripPlan,
+    'itinerary_id' => $itineraryId,
+]);
+
+    return response()->json($orderedPlaces);
+
+    }
+
+    public function tripKeluarga(Request $request)
+    {
+    $jumlahHariWisata = $request->input('jumlah_hari');
+    $transport = $request->input('transport');
+    $inputhotel = $request->input('budget');
+    $paketinput = $request->input('paket');
+    $latitude = $request->input('latitude');
+    $longitude = $request->input('longitude');
+    $mobil = \File::get(base_path('public/dbtransport/transportkeluarga.json'));
+    $mobils = json_decode($mobil,true);
+    $restoran = \File::get(base_path('public/dbrestoran/restokeluarga.json'));
+    $resto = json_decode($restoran, true);
+    $hotel = \File::get(base_path('public/dbhotel/hotelbackpacker.json'));
+    $hotels = json_decode($hotel,true);
+    $placez = \File::get(base_path('public/dbwisata/wisatakeluarga.json'));
+    $places = json_decode($placez, true);
+    $kuliners = \File::get(base_path('public/dbwisata/wisatakuliner.json'));
+    $kuliner = json_decode($kuliners, true);
+    $oleh = \File::get(base_path('public/dbwisata/wisataoleholeh.json'));
+    $oleholeh = json_decode($oleh, true);
+    $pakets = \File::get(base_path('public/dbpaketwisata/paketwisata.json'));
+    $paket = json_decode($pakets, true);
+
+    if($inputhotel == 'Ekonomis'){
+        $inputhotel =['1.0', '2.0'];
+    } if($inputhotel == 'Sedang'){
+        $inputhotel =['3.0', '4.0'];
+    } if($inputhotel == 'Mahal'){
+        $inputhotel =['4.0', '5.0'];
+    }
     
 
+    if($transport == 'Kereta'){
+        $userLatitude = deg2rad(-7.7892802);
+        $userLongitude = deg2rad(110.3611012);
+    } if($transport == 'Pesawat'){
+        $userLatitude = deg2rad(-7.831796);
+        $userLongitude = deg2rad(110.3083358);
+    } if($transport == 'Pribadi'){
+        $userLatitude = deg2rad($latitude);
+        $userLongitude = deg2rad($longitude);
+    } if($transport == 'Lainnya'){
+        $userLatitude = deg2rad(-7.7829218);
+        $userLongitude = deg2rad(110.3645008);
+    }
+
+    foreach ($places as $location) {
+        $locationLat = deg2rad($location['latitude']);
+        $locationLon = deg2rad($location['longitude']); 
+
+        $distance = $this->haversineDistance($userLatitude, $userLongitude, $locationLat, $locationLon);
+
+        $location['distance'] = $distance; 
+        $locationsWithDistance[] = $location;
+    }
+
+    $orderedPlaces = $locationsWithDistance;
+    usort($orderedPlaces, function ($a, $b) {
+        return $a['distance'] <=> $b['distance']; 
+    });
+
+
+    
+$tripPlan = [];
+$placesPerDay = array_chunk($orderedPlaces, 2);
+$timeslots = ['pagi', 'siang', 'malam'];
+$timeslotsMakan = ['MakanPagi', 'MakanSiang', 'MakanMalam'];
+$hotelStatus = 'Check in hotel'; 
+$firstDay = true;
+$visitedRestaurants = [];
+$visitedKuliner = [];
+$visitedOleh = [];
+$visitedAttractionsToday = [];
+for ($day = 0; $day < $jumlahHariWisata; $day++) {
+    if (isset($placesPerDay[$day])) {
+        $places = $placesPerDay[$day];
+        $dailyPlan = [];
+
+        $filteredHotel = array_filter($hotels, function ($jenishotel) use ($inputhotel){
+            return in_array($jenishotel['hotelClass'], $inputhotel);
+        });
+        
+        foreach ($timeslots as $index => $slot) {
+            if (isset($places[$index]) && $places[$index] !== 'Tidak ada aktivitas wisata.') {
+                if ($slot === 'pagi' && $firstDay) {
+                    $nearestHotel = null;
+                    $minHotelDistance = PHP_FLOAT_MAX;
+                    $minDistance = PHP_FLOAT_MAX;
+
+                    if($transport == 'Kereta'){
+                    if($places[0]){
+                        $dailyPlan['sewa'] = $mobils;
+                    }
+                }
+                if($transport == 'Pesawat'){
+                    if($places[0]){
+                        $dailyPlan['sewa'] = $mobils;
+                    }
+                }
+                if($transport == 'Lainnya'){
+                    if($places[0]){
+                        $dailyPlan['sewa'] = $mobils;
+                    }
+                }
+                if($paketinput == 'Ya'){
+                    if($places[0]){
+                        $dailyPlan['paketwisata'] = $paket;
+                    }
+                }else{
+                    $dailyPlan['paketwisata'] = [];
+                }
+                
+        
+                    foreach ($filteredHotel as $hotel) {
+                        $distance = $this->haversineDistances($places[0]['latitude'], $places[0]['longitude'], $hotel['latitude'], $hotel['longitude']);
+
+                        if ($distance < $minHotelDistance) {
+                            $minHotelDistance = $distance;
+                            $nearestHotel = $hotel;
+                        }
+                    }
+
+                    if ($nearestHotel) {
+                        $dailyPlan['Hotel'] = $nearestHotel;
+                        $hotelStatus = 'Persiapan ke lokasi wisata'; 
+                    }
+
+                    $firstDay = false; 
+                }
+               
+                $dailyPlan[$slot] = $places[$index];
+                if ($slot === 'pagi') {
+                    $nearestOleh = null;
+                    $minDistance = PHP_FLOAT_MAX;
+
+                    foreach ($oleholeh as $olehan) {
+                        $distance = $this->haversineDistances($places[$index]['latitude'], $places[$index]['longitude'], $olehan['latitude'], $olehan['longitude']);
+                    
+                        if ($distance < $minDistance && !in_array($olehan['nama'], $visitedOleh)) {
+                            $minDistance = $distance;
+                            $nearestOleh = $olehan;
+                        }
+                    }
+
+                    if ($nearestOleh) {
+                        $dailyPlan["wisataoleholeh"] = $nearestOleh;
+                        $visitedOleh[$day][] = $nearestOleh;
+                        $oleholeh = array_filter($oleholeh, function ($olehan) use ($nearestOleh) {
+                            return $olehan['nama'] !== $nearestOleh['nama'];
+                        });
+                    }
+                }
+
+                
+                $nearestRestaurant = null;
+                $nearestKuliner = null;
+                $nearestOleh = null;
+                $minDistance = PHP_FLOAT_MAX;
+
+
+                foreach ($resto  as $restaurant) {
+                        $distance = $this->haversineDistances($places[$index]['latitude'], $places[$index]['longitude'], $restaurant['latitude'], $restaurant['longitude']);
+                        if ($distance < $minDistance && !in_array($restaurant['nama'], $visitedRestaurants)) {
+                            $minDistance = $distance;
+                            $nearestRestaurant = $restaurant;
+                        }
+                }
+
+                if ($nearestRestaurant) {
+                    $dailyPlan["Makan$slot"] = $nearestRestaurant;
+                    $visitedRestaurants[$day][] = $nearestRestaurant;
+                    $resto = array_filter($resto, function ($restaurant) use ($nearestRestaurant) {
+                        return $restaurant['nama'] !== $nearestRestaurant['nama'];
+                    });
+                }
+            } 
+        }
+        if (!isset($dailyPlan['Hotel'])) {
+            $dailyPlan['Hotel'] = $hotelStatus;
+        }
+        
+        $dailyPlan['Malam'] = 'Kembali ke hotel';
+
+        
+        $tripPlan[] = [
+            'Hari' => $day + 1,
+            'Tempatwisata' => $dailyPlan ,
+        ];
+    }
+}
+
+$itineraryId = 'IT_' . uniqid(); 
+return response()->json([
+    'trip_plan' => $tripPlan,
+    'itinerary_id' => $itineraryId,
+]);
+    }
+
+    public function rekomendasiHotelkeluarga(){
+        $hotel = \File::get(base_path('public/dbhotel/hotel.json'));
+        $hotels = json_decode($hotel,true);
+        $inputhotel = ['4.0'];
+        $filteredHotel = array_filter($hotels, function ($jenishotel) use ($inputhotel){
+            return in_array($jenishotel['hotelClass'], $inputhotel);
+        });
+        return response()->json($filteredHotel);
+    }
+
+    public function rekomendasiHotelgrup(){
+        $hotel = \File::get(base_path('public/dbhotel/hotelgrup.json'));
+        $hotels = json_decode($hotel,true);
+        return response()->json($hotels);
+    }
+
+    public function deleteItinerary($itineraryId) {
+            History::where('link', $itineraryId)->delete();
+            $directoryPath = public_path("/dataitinerarybyuser/{$itineraryId}.json");
+            File::delete($directoryPath);
+    }
+    
+
+    public function rekomendasirestoGrup(){
+        $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+        $resto = json_decode($restoran, true);
+        $inputresto = ['1'];
+        $filteredResto = array_filter($resto, function ($masakan) use ($inputresto){
+            return in_array($masakan['grup'], $inputresto);
+        });
+        return response()->json($filteredResto); 
+    }
+
+    public function rekomendasirestoKeluarga(){
+    $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($restoran, true);
+    $inputresto = ['Khas', 'Jawa'];
+    $filteredResto = array_filter($resto, function ($masakan) use ($inputresto){
+        return in_array($masakan['masakan'], $inputresto);
+    });
+    return response()->json($filteredResto);
+    }
+    
+        
+    public function tripBackpacker(Request $request)
+    {
+    $jumlahHariWisata = $request->input('jumlah_hari');
+    $transport = $request->input('transport');
+    $motor = \File::get(base_path('public/dbtransport/transport.json'));
+    $motors = json_decode($motor,true);
+    $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($restoran, true);
+    $makanan = ["$","$$"];
+    $hotel = \File::get(base_path('public/dbhotel/hotelbackpacker.json'));
+    $hotels = json_decode($hotel,true);
+    $placez = \File::get(base_path('public/dbwisata/wisatabackpacker.json'));
+    $places = json_decode($placez, true);
+    $inputPrice = '200000';
+    $latitude = $request->input('latitude');
+    $longitude = $request->input('longitude');
+
+    if($transport == 'Kereta'){
+        $userLatitude = deg2rad(-7.7892802);
+        $userLongitude = deg2rad(110.3611012);
+    } if($transport == 'Pesawat'){
+        $userLatitude = deg2rad(-7.831796);
+        $userLongitude = deg2rad(110.3083358);
+    } if($transport == 'Pribadi'){
+        $userLatitude = deg2rad($latitude);
+        $userLongitude = deg2rad($longitude);
+    } if($transport == 'Lainnya'){
+        $userLatitude = deg2rad(-7.7829218);
+        $userLongitude = deg2rad(110.3645008);
+    }
+foreach ($places as $location) {
+    $locationLat = deg2rad($location['latitude']);
+    $locationLon = deg2rad($location['longitude']); 
+
+    $distance = $this->haversineDistance($userLatitude, $userLongitude, $locationLat, $locationLon);
+
+    $location['distance'] = $distance; 
+    $locationsWithDistance[] = $location;
+}
+
+$orderedPlaces = $locationsWithDistance;
+usort($orderedPlaces, function ($a, $b) {
+    return $a['distance'] <=> $b['distance']; 
+});
+
+    
+$tripPlan = [];
+$placesPerDay = array_chunk($orderedPlaces, 3);
+$timeslots = ['pagi', 'siang', 'malam'];
+$timeslotsMakan = ['MakanPagi', 'MakanSiang', 'MakanMalam'];
+$hotelStatus = 'Check in hotel'; 
+$firstDay = true;
+$visitedRestaurants = [];
+$visitedAttractionsToday = [];
+for ($day = 0; $day < $jumlahHariWisata; $day++) {
+    if (isset($placesPerDay[$day])) {
+        $places = $placesPerDay[$day];
+        $dailyPlan = [];
+
+        $filteredHotel = array_filter($hotels, function ($hotel) use ($inputPrice) {
+            $priceRange = $hotel['priceRange'];
+            $priceValues = explode('-', $priceRange);
+            
+            if (count($priceValues) === 2) {
+                $lowerPrice = (float)str_replace('.', '', $priceValues[0]);
+                $inputPrice = (float)str_replace('.', '', $inputPrice);
+        
+                return $lowerPrice <= $inputPrice;
+            } else {
+                return false;
+            }
+        });
+
+
+        foreach ($timeslots as $index => $slot) {
+            if (isset($places[$index]) && $places[$index] !== 'Tidak ada aktivitas wisata.') {
+                if ($slot === 'pagi' && $firstDay) {
+                    $nearestHotel = null;
+                    $minHotelDistance = PHP_FLOAT_MAX;
+
+                    if($transport == 'Kereta'){
+                    if($places[0]){
+                        $dailyPlan['sewa'] = $motors;
+                    }
+                }
+                if($transport == 'Pesawat'){
+                    if($places[0]){
+                        $dailyPlan['sewa'] = $motors;
+                    }
+                }
+                if($transport == 'Lainnya'){
+                    if($places[0]){
+                        $dailyPlan['sewa'] = $motors;
+                    }
+                }
+                    
+                    foreach ($filteredHotel as $hotel) {
+                        $distance = $this->haversineDistances($places[0]['latitude'], $places[0]['longitude'], $hotel['latitude'], $hotel['longitude']);
+
+                        if ($distance < $minHotelDistance) {
+                            $minHotelDistance = $distance;
+                            $nearestHotel = $hotel;
+                        }
+                    }
+
+                    if ($nearestHotel) {
+                        $dailyPlan['Hotel'] = $nearestHotel;
+                        $hotelStatus = 'Persiapan ke lokasi wisata'; 
+                    }
+
+                    $firstDay = false; 
+                }
+               
+                $dailyPlan[$slot] = $places[$index];
+                
+                $nearestRestaurant = null;
+                $minDistance = PHP_FLOAT_MAX;
+
+                $filteredRestoran = array_filter($resto, function ($tempatmakan) use ($makanan) {
+                    return in_array($tempatmakan['harga'], $makanan);
+                });
+
+                foreach ($filteredRestoran  as $restaurant) {
+                        $distance = $this->haversineDistances($places[$index]['latitude'], $places[$index]['longitude'], $restaurant['latitude'], $restaurant['longitude']);
+                
+                        if ($distance < $minDistance && !in_array($restaurant['nama'], $visitedRestaurants)) {
+                            $minDistance = $distance;
+                            $nearestRestaurant = $restaurant;
+                        }
+                }
+
+                if ($nearestRestaurant) {
+                    $dailyPlan["Makan$slot"] = $nearestRestaurant;
+                    $visitedRestaurants[$day] = $nearestRestaurant;
+                    $filteredRestoran = array_filter($filteredRestoran, function ($restaurant) use ($nearestRestaurant) {
+                        return $restaurant['nama'] !== $nearestRestaurant['nama'];
+                    }); 
+                }
+                    
+                
+            } 
+        }
+        if (!isset($dailyPlan['Hotel'])) {
+            $dailyPlan['Hotel'] = $hotelStatus;
+        }
+        
+        $dailyPlan['Malam'] = 'Kembali ke hotel';
+
+        $tripPlan[] = [
+            'Hari' => $day + 1,
+            'Tempatwisata' => $dailyPlan ,
+        ];
+    } else {
+        break;
+    }
+    
+}
+$itineraryId = 'IT_' . uniqid(); 
+return response()->json([
+    'trip_plan' => $tripPlan,
+    'itinerary_id' => $itineraryId,
+]);
+    }
+    
     public function generateTrip(Request $request)
 {
     $jumlahHariWisata = $request->input('jumlah_hari');
-    $userLatitude = $request->input('user_latitude');
-    $userLongitude = $request->input('user_longitude');
+    $userLatitude = deg2rad($request->input('user_latitude')) ;
+    $userLongitude = deg2rad($request->input('user_longitude'));
+    $makanan = $request->input('makanan');
+    $inputresto= $makanan;
+    $inputhotel = $request->input('hotel');
     $user = JWTAuth::user();
-    $places = UserLike::where('users_id', $user->id)->get()->toArray();
-    
-    // Bangun representasi graf dengan jarak sebagai bobot
-    $graph = [];
-    foreach ($places as $place) {
-        $place['distance'] = $this->haversineDistances($userLatitude, $userLongitude, $place['latitude'], $place['longitude']);
-        var_dump($place['distance']);
-        $graph[$place['id']] = [
-            'distance' => $place['distance'],
-            'neighbors' => [],
-        ];
+    $places = UserLike::where('users_id', $user->id)->get();
+    $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($restoran, true);
+    $hotel = \File::get(base_path('public/dbhotel/hotel.json'));
+    $hotels = json_decode($hotel,true);
+    $locationsWithDistance = [];
+
+    foreach ($places as $location) {
+        $locationLat = deg2rad($location->latitude);
+        $locationLon = deg2rad($location->longitude); 
+
+        $distance = $this->haversineDistance($userLatitude, $userLongitude, $locationLat, $locationLon);
+
+        $location->distance = $distance; 
+        $locationsWithDistance[] = $location;
     }
-    
-    // Mengisi informasi tetangga untuk setiap tempat wisata
-    foreach ($graph as $placeId => &$placeInfo) {
-        foreach ($graph as $neighborId => $neighborInfo) {
-            if ($placeId !== $neighborId) {
-                $distance = $neighborInfo['distance'];
-                $placeInfo['neighbors'][$neighborId] = $distance;
-            }
-        }
-    }
-    
-    
-    
-    // Implementasi algoritma Dijkstra
-    $distances = [];
-    $previous = [];
-    $unvisited = [];
-    
-    foreach ($graph as $placeId => $placeInfo) {
-        $distances[$placeId] = INF;
-        $previous[$placeId] = null;
-        $unvisited[$placeId] = $placeInfo['distance'];
-    }
-    
-    $currentPlaceId = null;
-    
-    while (!empty($unvisited)) {
-        $minDistance = min($unvisited);
-        $currentPlaceId = array_search($minDistance, $unvisited);
-        
-        foreach ($graph[$currentPlaceId]['neighbors'] as $neighborId => $distance) {
-            $totalDistance = $distances[$currentPlaceId] + $distance;
-            if ($totalDistance < $distances[$neighborId]) {
-                $distances[$neighborId] = $totalDistance;
-                $previous[$neighborId] = $currentPlaceId;
-            }
-        }
-        
-        unset($unvisited[$currentPlaceId]);
-    }
-    
-    
-    $visited = array_keys($previous); 
-    $currentPlaceId = array_search(min($distances), $distances);
-    
-    while ($currentPlaceId !== null) {
-        $visited[] = $currentPlaceId;
-        $currentPlaceId = $previous[$currentPlaceId];
-    }
-    
-   
-    $orderedPlaces = [];
-foreach ($visited as $placeId) {
-    foreach ($places as $place) {
-        if ($place['id'] === $placeId) {
-            $orderedPlaces[] = $place;
-            break;
-        }
-    }
-}
+
+    $orderedPlaces = $locationsWithDistance;
+    usort($orderedPlaces, function ($a, $b) {
+        return $a->distance <=> $b->distance; 
+    });
 
 
     
-    $tripPlan = [];
+$tripPlan = [];
 $placesPerDay = array_chunk($orderedPlaces, 3);
-
+$timeslots = ['pagi', 'siang', 'malam'];
+$timeslotsMakan = ['MakanPagi', 'MakanSiang', 'MakanMalam'];
+$hotelStatus = 'Check in hotel'; 
+$firstDay = true;
+$visitedRestaurants = [];
+$visitedAttractionsToday = [];
 for ($day = 0; $day < $jumlahHariWisata; $day++) {
     if (isset($placesPerDay[$day])) {
+        $places = $placesPerDay[$day];
+        $dailyPlan = [];
+        
+        if($inputhotel == 'OYO'){
+            $filteredHotel = array_filter($hotels, function ($jenishotel) {
+                return strstr($jenishotel['name'], 'OYO');
+            });
+        }else if($inputhotel == 'RedDoorz'){
+            $filteredHotel = array_filter($hotels, function ($jenishotel) {
+                return strstr($jenishotel['name'], 'RedDoorz');
+            });
+        } else if ($inputhotel !== 'OYO' && 'RedDoorz'){
+            $filteredHotel = array_filter($hotels, function ($jenishotel) use ($inputhotel) {
+                return strstr($jenishotel['hotelClass'], $inputhotel);
+            });
+        }
+
+        foreach ($timeslots as $index => $slot) {
+            if (isset($places[$index]) && $places[$index] !== 'Tidak ada aktivitas wisata.') {
+                if ($slot === 'pagi' && $firstDay) {
+                    $nearestHotel = null;
+                    $minHotelDistance = PHP_FLOAT_MAX;
+
+                    foreach ($filteredHotel as $hotel) {
+                        $distance = $this->haversineDistances($places[0]['latitude'], $places[0]['longitude'], $hotel['latitude'], $hotel['longitude']);
+
+                        if ($distance < $minHotelDistance) {
+                            $minHotelDistance = $distance;
+                            $nearestHotel = $hotel;
+                        }
+                    }
+
+                    if ($nearestHotel) {
+                        $dailyPlan['Hotel'] = $nearestHotel;
+                        $hotelStatus = 'Persiapan ke lokasi wisata'; 
+                    }
+
+                    $firstDay = false; 
+                }
+               
+                $dailyPlan[$slot] = $places[$index];
+                
+                $nearestRestaurant = null;
+                $minDistance = PHP_FLOAT_MAX;
+
+                $filteredRestoran = array_filter($resto, function ($tempatmakan) use ($makanan) {
+                    return in_array($tempatmakan['masakan'], $makanan);
+                });
+
+                foreach ($filteredRestoran  as $restaurant) {
+                    if ($restaurant['rekomendasi'] === $slot) {
+                        $distance = $this->haversineDistances($places[$index]['latitude'], $places[$index]['longitude'], $restaurant['latitude'], $restaurant['longitude']);
+                
+                        if ($distance < $minDistance && !in_array($restaurant['nama'], $visitedRestaurants)) {
+                            $minDistance = $distance;
+                            $nearestRestaurant = $restaurant;
+                        }
+                    }
+                }
+
+                if ($nearestRestaurant) {
+                    $dailyPlan["Makan$slot"] = $nearestRestaurant;
+                    $visitedRestaurants[] = $nearestRestaurant; 
+                }
+                    
+                
+            } 
+        }
+        if (!isset($dailyPlan['Hotel'])) {
+            $dailyPlan['Hotel'] = $hotelStatus;
+        }
+        
+        $dailyPlan['Malam'] = 'Kembali ke hotel';
+
         $tripPlan[] = [
             'Hari' => $day + 1,
-            'Tempat wisata' => $placesPerDay[$day],
+            'Tempatwisata' => $dailyPlan ,
         ];
     } else {
-        break; 
+        break;
     }
+    
 }
+$itineraryId = 'IT_' . uniqid(); 
 
 return response()->json([
-    'trip_plan' => $place,
+    'trip_plan' => $tripPlan,
+    'itinerary_id' => $itineraryId,
+    'makanan' => $inputresto
 ]);
 }
-
-// public function generateTrip(Request $request)
-//     {
-//         $jumlahHariWisata = $request->input('jumlah_hari');
-//         $userLatitude = $request->input('user_latitude');
-//         $userLongitude = $request->input('user_longitude');
-//         $user = JWTAuth::user();
-//         $places = UserLike::where('users_id', $user->id)->get()->toArray();
-    
-//         foreach ($places as &$place) {
-//             $place['distance'] = $this->haversineDistance($userLatitude, $userLongitude, $place['latitude'], $place['longitude']);
-//         }
-    
-//         usort($places, function ($a, $b) {
-//             return $a['distance'] <=> $b['distance'];
-//         });
-    
-//         $visited = [];
-//         $tripPlan = [];
-//         $userLocation = $places[0];
-    
-//         for ($day = 1; $day <= $jumlahHariWisata; $day++) {
-//             $currentPlace = $userLocation;
-//             $placesForDay = [];
-//             $slots = ['Pagi', 'Siang', 'Malam'];
-    
-//             foreach ($slots as $slot) {
-//                 $nextPlace = null;
-    
-//                 foreach ($places as $place) {
-//                     if (!in_array($place, $visited) && !in_array($place, $placesForDay)) {
-//                         $nextPlace = $place;
-//                         break;
-//                     }
-//                 }
-    
-//                 if ($nextPlace) {
-//                     $placesForDay[$slot] = $nextPlace;
-//                     $visited[] = $nextPlace;
-//                 }
-//             }
-    
-//             $tripPlan[] = [
-//                 'Hari' => $day,
-//                 'Tempat wisata' => $placesForDay,
-//             ];
-//         }
-    
-//         return response()->json([
-//             'trip_plan' => $tripPlan,
-//         ]);
-//     }
-
-    
-    
-
-
-
 
     public function listresto(Request $request)
     {
@@ -259,7 +869,7 @@ return response()->json([
         $nearestDistance = [];
 
         foreach ($locations as $location) {
-            $distance = $this->haversineDistance($latitude, $longitude, $location['latitude'], $location['longitude']);
+            $distance = $this->haversineDistances($latitude, $longitude, $location['latitude'], $location['longitude']);
 
             if ($distance <= $radius) {
                 $location['distance'] = $distance;
@@ -283,17 +893,40 @@ return response()->json([
         return response()->json($kategori);
     }
 
-    public function wisatabykategori($kategori){
+    public function wisatabykategori(Request $request, $kategori)
+    {
+        $latitude = $request->latitude;
+        $longitude = $request->longitude;
+        $wisataJson = \File::get(base_path('public/dbwisata/wisatadataset.json'));
+        $wisata = json_decode($wisataJson, true);
+        $nearestLocations = [];
+    
+        foreach ($wisata as $location) {
+            $locationLat = $location['latitude'];
+            $locationLon = $location['longitude'];
+    
+            $distance = $this->haversineDistances($latitude, $longitude, $locationLat, $locationLon);
+    
+            $location['distance'] = $distance; // Add the distance to the location data
+            $nearestLocations[] = $location;
+        }
+    
+        $filteredWisata = array_filter($nearestLocations, function ($item) use ($kategori) {
+            return empty($kategori) || $item['kategori'] === $kategori;
+        });
+    
+        return response()->json($filteredWisata);
+    }
+    
+
+    public function topwisata(){
         $wisataJson = \File::get(base_path('public/dbwisata/wisatadataset.json')); 
         $wisata = json_decode($wisataJson, true);
-
-        $filteredWisata = array_filter($wisata, function ($item) use ($kategori) {
-            return (
-                (empty($kategori) || $item['kategori'] === $kategori)
-            );
+        usort($wisata, function ($a, $b) {
+            return $b['jumlahrating'] - $a['jumlahrating'];
         });
-
-        return response()->json($filteredWisata);
+        $top10Wisata = array_slice($wisata, 0, 10);
+        return response()->json($top10Wisata);
     }
 
     public function getkategori($kategori){
@@ -324,9 +957,9 @@ return response()->json([
 
     public function explorewisata(Request $request)
 {
-    $latitude = deg2rad($request->latitude); // Convert to radians
-    $longitude = deg2rad($request->longitude); // Convert to radians
-    $radius = $request->input('radius', 5); // Radius in kilometers
+    $latitude = deg2rad($request->latitude); 
+    $longitude = deg2rad($request->longitude); 
+    $radius = $request->input('radius', 5); 
 
     $locationsJson = \File::get(base_path('public/dbwisata/wisatadataset.json'));
     $locations = json_decode($locationsJson, true);
@@ -377,17 +1010,28 @@ public function getUserLikeswisata(Request $request)
     return response()->json($locationsWithDistance);
 }
 
+public function getItinerarybyuser(Request $request){
+    $user = JWTAuth::user();
+    $itinerary = History::where('users_id',$user->id)->get();
+    return response()->json($itinerary);
+}
+
 public function mapslocation(Request $request){
     $locationsJson = \File::get(base_path('public/dbwisata/wisatadataset.json'));
     $locations = json_decode($locationsJson, true);
+    return response()->json($locations);
+}
 
+public function mapshotel(Request $request){
+    $locationsJson = \File::get(base_path('public/dbhotel/hotel.json'));
+    $locations = json_decode($locationsJson, true);
     return response()->json($locations);
 }
 
 
     public function cuaca(Request $request)
     {
-        $apiKey = 'b7a0fc591e66f553fe00e419f33cbc30'; 
+        $apiKey = 'aa6b1088a41e85b147ab21a88458a408'; 
         $location = $request->input('location', 'Yogyakarta'); 
 
         $client = new Client();
@@ -405,13 +1049,12 @@ public function mapslocation(Request $request){
 
     public function addLove(Request $request, $attractionId)
 {
-    // Check for authentication first
+    
     $user = JWTAuth::user();
     if (!$user) {
         return response()->json(['error' => 'Unauthenticated'], 401);
     }
 
-    // Load JSON data
     $jsonData = \File::get(base_path('public/dbwisata/wisatadataset.json'));
     $attractionsData = json_decode($jsonData, true);
     $indexedAttractionsData = [];
@@ -431,20 +1074,49 @@ public function mapslocation(Request $request){
             'url_maps' => $indexedAttractionsData[$attractionId]['url_maps'],
             'kategori' => $indexedAttractionsData[$attractionId]['kategori'],
             'jenis_wisata' => $indexedAttractionsData[$attractionId]['jeniswisata'],
-            'deskripsi' => $indexedAttractionsData[$attractionId]['deskripsi']
+            'deskripsi' => $indexedAttractionsData[$attractionId]['deskripsi'],
+            'anak' => $indexedAttractionsData[$attractionId]['anak'],
+            'lansia' => $indexedAttractionsData[$attractionId]['lansia'],
+            'isnight' => $indexedAttractionsData[$attractionId]['isnight'],
+            'descitinerary' => $indexedAttractionsData[$attractionId]['descitinerary'],
+            'htm_weekday' => $indexedAttractionsData[$attractionId]['htm_weekday'],
+            'htm_weekend' => $indexedAttractionsData[$attractionId]['htm_weekend'],
+            
         ]);
        
     } else {
-        // Handle invalid attraction ID
+       
         return response()->json(['error' => 'Invalid attraction ID'], 400);
     }
+}
+
+public function saveItineraryUser(Request $request, $itineraryId){
+    $user = JWTAuth::user();
+    if (!$user) {
+        return response()->json(['error' => 'Unauthenticated'], 401);
+    }
+
+    History::create([
+        'users_id' => $user->id,
+        'caption' => $request->caption,
+        'share' => $request->share,
+        'tipe' => $request->tipe,
+        'judul' => $request->judul,
+        'image' => $request->image,
+        'link' => $itineraryId,
+        'nama_user' => $user->name,
+        'img_user' => $user->image
+    ]);
+}
+
+function isIdInDatabase($itineraryId) {
+    $history = History::where('link', $itineraryId)->first();
+    return !!$history;
 }
 
 public function removeLove(Request $request, $attractionId)
 {
     $user = JWTAuth::user();
-    
-    // Find the user like record and delete it
     UserLike::where('users_id', $user->id)
             ->where('wisata_id', $attractionId)
             ->delete();
@@ -464,12 +1136,8 @@ public function getUserLikes(Request $request)
 public function getUserBasedRecommendations(Request $request)
 {
     $userId = $request->user()->id;
-
-    // Load attractions from JSON file
     $jsonData = \File::get(base_path('public/dbwisata/wisatadataset.json'));
     $attractions = json_decode($jsonData, true);
-
-    // Get user's liked attractions and their types
     $userLikedAttractions = UserLike::where('users_id', $userId)->pluck('jenis_wisata');
 
     $recommendedAttractions = [];
@@ -478,13 +1146,13 @@ public function getUserBasedRecommendations(Request $request)
             return $attraction['jeniswisata'] === $jenisWisata;
         });
     
-        // Exclude already liked attractions
+      
         $userLikedAttractionIds = UserLike::where('users_id', $userId)->pluck('wisata_id')->all();
         $recommendedAttractions[$jenisWisata] = array_filter($similarAttractions, function ($attraction) use ($userLikedAttractionIds) {
             return !in_array($attraction['id'], $userLikedAttractionIds);
         });
     
-        // Sort attractions by rating in descending order
+        
         usort($recommendedAttractions[$jenisWisata], function ($a, $b) {
             return $b['rating'] - $a['rating'];
         });
@@ -504,5 +1172,154 @@ public function checkWeekdayOrWeekend($date)
         return response()->json(['result' => "weekend"]);
     }
 }
+
+public function saveItineraryToJSON(Request $request)
+{
+    $itineraryId = $request->input('itinerary_id');
+    $tripPlan = $request->input('trip_plan');
+    $tripPlanmakanan = $request->input('makanan');
+
+
+    $jsonTripPlan = json_encode($tripPlan, JSON_UNESCAPED_SLASHES);
+    $filePath = public_path("/dataitinerarybyuser/{$itineraryId}.json");
+    if (!file_exists(dirname($filePath))) {
+        mkdir(dirname($filePath), 0777, true);
+    }
+
+    $jsonTripPlanmakanan = json_encode($tripPlanmakanan, JSON_UNESCAPED_SLASHES);
+    $filePathmakanan = public_path("/dataitinerarymakanan/{$itineraryId}.json");
+    if (!file_exists(dirname($filePathmakanan))) {
+        mkdir(dirname($filePathmakanan), 0777, true);
+    }
+
+
+
+    file_put_contents($filePath, $jsonTripPlan);
+    file_put_contents($filePathmakanan, $jsonTripPlanmakanan);
+
+    return response()->json([
+        'message' => 'Data itinerary berhasil disimpan ke file JSON.'
+    ]);
+}
+
+public function loadItinerary($itineraryId){
+    $itineraryData = \File::get(base_path("public/dataitinerarybyuser/{$itineraryId}.json"));
+    $Data = json_decode($itineraryData, true);
+    return response()->json($Data);
+}
+
+public function loadrekomendasiresto($itineraryId){
+    $itineraryData = \File::get(base_path("public/dataitinerarymakanan/{$itineraryId}.json"));
+    $Data = json_decode($itineraryData, true);
+    $dataresto = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($dataresto, true);
+
+    $filteredRestoran = array_filter($resto, function ($tempatmakan) use ($Data) {
+        return in_array($tempatmakan['masakan'], $Data);
+    });
+    
+    return response()->json($filteredRestoran);
+}
+
+public function loadDetailitinerary($itineraryId){
+    $itinerarydata = History::where('link', $itineraryId)->get();
+    return response()->json($itinerarydata);
+}
+
+public function getPaketwisata(){
+    $paket = \File::get(base_path('public/dbpaketwisata/paketwisata.json'));
+    $paketwisata = json_decode($paket, true);
+
+    return response()->json($paketwisata);
+}
+
+public function inspirasiItinerary(){
+    $itinerarydata = History::where('share', 1)->get();
+    return response()->json($itinerarydata);
+}
+
+public function Wisatapage($wisataid){
+    $wisataJson = \File::get(base_path('public/dbwisata/wisatadataset.json'));
+    $wisata = json_decode($wisataJson, true);
+    $filteredWisata = array_filter($wisata, function ($item) use ($wisataid) {
+        return empty($wisataid) || $item['id'] === $wisataid;
+    });
+
+    return response()->json($filteredWisata);
+}
+
+public function hotelbackpacker(){
+    $hotel = \File::get(base_path('public/dbhotel/hotelbackpacker.json'));
+    $hotels = json_decode($hotel,true);
+    $inputPrice = '200000';
+
+    $filteredHotel = array_filter($hotels, function ($hotel) use ($inputPrice) {
+        $priceRange = $hotel['priceRange'];
+        $priceValues = explode('-', $priceRange);
+        
+        if (count($priceValues) === 2) {
+            $lowerPrice = (float)str_replace('.', '', $priceValues[0]);
+            $inputPrice = (float)str_replace('.', '', $inputPrice);
+    
+            return $lowerPrice <= $inputPrice; 
+        } else {
+            return false;
+        }
+    });
+    return response()->json($filteredHotel);
+}
+
+public function restobackpacker(){
+    $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($restoran, true);
+    $makanan = ["$","$$"];
+    $filteredRestoran = array_filter($resto, function ($tempatmakan) use ($makanan) {
+        return in_array($tempatmakan['harga'], $makanan);
+    });
+    return response()->json($filteredRestoran);
+}
+
+public function restogrup(){
+    $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
+    $resto = json_decode($restoran, true);
+    $makanan = ["1"];
+    $filteredRestoran = array_filter($resto, function ($tempatmakan) use ($makanan) {
+        return in_array($tempatmakan['grup'], $makanan);
+    });
+    return response()->json($filteredRestoran);
+}
+
+public function kendaraanbackpacker(){
+    $motor = \File::get(base_path('public/dbtransport/transportfullpack.json'));
+    $motors = json_decode($motor,true);
+
+    return response()->json($motors);
+}
+
+public function eksperimen(){
+    $latitude = deg2rad(-7.8086832); 
+    $longitude = deg2rad(110.3189663); 
+    $user = JWTAuth::user();
+    $likedAttractions = UserLike::where('users_id', 35)->get();
+    $locationsWithDistance = [];
+
+    foreach ($likedAttractions as $location) {
+        $locationLat = deg2rad($location->latitude);
+        $locationLon = deg2rad($location->longitude); 
+
+        $distance = $this->haversineDistance($latitude, $longitude, $locationLat, $locationLon);
+
+        $location->distance = $distance; 
+        $locationsWithDistance[] = $location;
+    }
+
+    usort($locationsWithDistance, function ($a, $b) {
+        return $a->distance <=> $b->distance; 
+    });
+
+
+return response()->json($locationsWithDistance);
+}
+
 
 }

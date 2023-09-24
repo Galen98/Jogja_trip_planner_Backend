@@ -1,0 +1,65 @@
+[
+  {
+    "id": 8,
+    "nama": "Sendang Ayu Rumah Makan dan Pemancingan",
+    "latitude": -7.7609855,
+    "longitude": 110.4734577,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipN1PYx1S9U4zP0NkdxrXmpvnnzMEd4XW5XgpRXL=w408-h544-k-no",
+    "maps": "https://maps.app.goo.gl/c7gDEVSYNLLdWLSx8",
+    "rekomendasi": "siang"
+  },
+  {
+    "id": 9,
+    "nama": "Warung Watoe Gadjah",
+    "latitude": -7.7104269,
+    "longitude": 110.3928362,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipOPKxBi-43m-Jqc4FVbRSBwp1IdB-fIpc_4KZ0v=w408-h306-k-no",
+    "maps": "https://maps.app.goo.gl/uy8DME6vB2pmi1SDA",
+    "rekomendasi": "siang"
+  },
+  {
+    "id": 10,
+    "nama": "De MANGOL VIEW",
+    "latitude": -7.8388793,
+    "longitude": 110.4870662,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipNV1l_H7yoKM-nuFuB-CqJOiseQU5E4c_mUCeiJ=w426-h240-k-no",
+    "maps": "https://maps.app.goo.gl/ijd85qVFHDfk9Cgs5",
+    "rekomendasi": "siang"
+  },
+  {
+    "id": 11,
+    "nama": "Lalawuh Sunda",
+    "latitude": -7.7800621,
+    "longitude": 110.347637,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipMse3PdzxXC5_Z7gXpem1aO0L9opYM2Z9iQLwOz=w427-h240-k-no",
+    "maps": "https://maps.app.goo.gl/kQjrPVcydNGw6J7C8",
+    "rekomendasi": "siang"
+  },
+  {
+    "id": 12,
+    "nama": "Kopi Legi",
+    "latitude": -7.7822593,
+    "longitude": 110.4353988,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipNzFFH8X6p7zuKn3qLANbuIOEE7S5ohdvz_WYeL=w408-h272-k-no",
+    "maps": "https://maps.app.goo.gl/myF8giMv2b8rhEpJA",
+    "rekomendasi": "siang"
+  },
+  {
+    "id": 13,
+    "nama": "AMURWA Garden & Resto",
+    "latitude": -7.6761476,
+    "longitude": 110.414833,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipOnUpB4Qfjtvl0MyM5HMFASCAqFxN71jLAX6rnk=w426-h240-k-no",
+    "maps": "https://maps.app.goo.gl/gFKqDgwSbkP4NGRXA",
+    "rekomendasi": "siang"
+  },
+  {
+    "id": 14,
+    "nama": "Mbah Bayan Jogja",
+    "latitude": -7.735152,
+    "longitude": 110.3240844,
+    "image": "https://lh5.googleusercontent.com/p/AF1QipMLwoQUXJuJeotw2mi5GKLqON7usFTHZQLlk-0=w425-h240-k-no",
+    "maps": "https://maps.app.goo.gl/sT3sLcdzuurHUDD38",
+    "rekomendasi": "siang"
+  }
+]

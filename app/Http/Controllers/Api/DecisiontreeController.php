@@ -345,7 +345,7 @@ class DecisiontreeController extends Controller
                 "operating_hours" => $predictData[$index]["operating_hours"],
                 "recommendation" => $prediction,
 
-                "distance"=>$distance
+                "distance"=>$nearestLocations[$index]["distance"]
             ];
         }
         
@@ -354,17 +354,17 @@ class DecisiontreeController extends Controller
     }
 
     private function haversineDistance($lat1, $lon1, $lat2, $lon2)
-{
-    $earthRadius = 6371; // in kilometers
-
-    $dLat = $lat2 - $lat1;
-    $dLon = $lon2 - $lon1;
-
-    $a = sin($dLat / 2) * sin($dLat / 2) + cos($lat1) * cos($lat2) * sin($dLon / 2) * sin($dLon / 2);
-    $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
-
-    $distance = $earthRadius * $c; // Distance in kilometers
-
-    return $distance;
-}
+    {
+        $earthRadius = 6371; // in kilometers
+    
+        $dLat = $lat2 - $lat1;
+        $dLon = $lon2 - $lon1;
+    
+        $a = sin($dLat / 2) * sin($dLat / 2) + cos($lat1) * cos($lat2) * sin($dLon / 2) * sin($dLon / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+    
+        $distance = $earthRadius * $c; // Distance in kilometers
+    
+        return $distance;
+    }
 }

@@ -52,7 +52,8 @@ class UserControllers extends Controller
                 'job'     => $request->job,
                 'motivation'   => $request->motivation,
                 'hometown' => $request->hometown,
-                'tipe' => $request->tipe
+                'tipe' => $request->tipe,
+                'usia' => $request->usia
             ]);
 
         }
@@ -64,7 +65,8 @@ class UserControllers extends Controller
                 'job'     => $request->job,
                 'motivation'   => $request->motivation,
                 'hometown' => $request->hometown,
-                'tipe' => $request->tipe
+                'tipe' => $request->tipe,
+                'usia' => $request->usia
             ]);
         }
         return new PostResource(true, 'Data Post Berhasil Diubah!', $dashboard);

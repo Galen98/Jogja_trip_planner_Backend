@@ -1,0 +1,110 @@
+[
+    {
+        "address": "Jl. Diponegoro no. 99 100 meters to Tugu Yogyakarta, 55231 Indonesia",
+        "hotelClass": "3.5",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/21/67/7a/2c/pesonna-hotel-tugu-yogyakarta.jpg",
+        "latitude": "-7.78323",
+        "longitude": "110.36311",
+        "name": "KHAS Tugu Hotel",
+        "priceRange": "Rp 406.000 - Rp 531.000",
+        "rating": "5.0",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d12019387-Reviews-KHAS_Tugu_Hotel-Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jl. P. Mangkubumi 72A, Yogyakarta 55233 Indonesia",
+        "hotelClass": "5.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/18/f4/58/63/pool-bar.jpg",
+        "latitude": "-7.773843",
+        "longitude": "110.36865",
+        "name": "Hotel Tentrem Yogyakarta",
+        "priceRange": "Rp 1.516.000 - Rp 2.016.000",
+        "rating": "4.5",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g14782503-d3737584-Reviews-Hotel_Tentrem_Yogyakarta-Yogyakarta_Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jl. Majen Sutoyo no. 52, 55143 Indonesia",
+        "hotelClass": "3.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/22/1e/37/9d/01-swimming-pool.jpg",
+        "latitude": "-7.815372",
+        "longitude": "110.36568",
+        "name": "The Alana Hotel & Conference Center Malioboro Yogyakarta by ASTON",
+        "priceRange": "Rp 516.000 - Rp 859.000",
+        "rating": "4.5",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d7751603-Reviews-The_Alana_Hotel_Conference_Center_Malioboro_Yogyakarta_by_ASTON-Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jl. I Dewa Nyoman Oka no. 30, Yogyakarta 55224 Indonesia",
+        "hotelClass": "3.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/23/cf/0a/ae/lobby.jpg",
+        "latitude": "-7.785724",
+        "longitude": "110.36983",
+        "name": "favehotel Malioboro Yogyakarta",
+        "priceRange": "Rp 313.000 - Rp 484.000",
+        "rating": "4.5",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g14782503-d9721750-Reviews-Favehotel_Malioboro_Yogyakarta-Yogyakarta_Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jalan Malioboro No 52-58, Yogyakarta 55001 Indonesia",
+        "hotelClass": "3.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/24/ff/4a/8e/guest-room.jpg",
+        "latitude": "-7.793226",
+        "longitude": "110.36632",
+        "name": "Ibis Yogyakarta Malioboro Hotel",
+        "priceRange": "Rp 531.000 - Rp 672.000",
+        "rating": "4.0",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g14782503-d299576-Reviews-Ibis_Yogyakarta_Malioboro_Hotel-Yogyakarta_Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jl. Dagen no. 8 Malioboro, 55271 Indonesia",
+        "hotelClass": "2.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/1c/de/0e/7f/area-taman-lantai-1.jpg",
+        "latitude": "-7.793938",
+        "longitude": "110.36543",
+        "name": "Whiz Hotel Malioboro",
+        "priceRange": "Rp 375.000 - Rp 594.000",
+        "rating": "3.5",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d1860708-Reviews-Whiz_Hotel_Malioboro-Yogyakarta_Region_Java.html"
+      },{
+        "address": "Jl. Bayangkara no. 35 Ngampilan, 55261 Indonesia",
+        "hotelClass": "3.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/22/ff/22/0e/cordela-kartika-dewi.jpg",
+        "latitude": "-7.79836",
+        "longitude": "110.36189",
+        "name": "Cordela Kartika Dewi Malioboro Yogyakarta",
+        "priceRange": "Rp 328.000 - Rp 438.000",
+        "rating": "4.0",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d10454158-Reviews-Cordela_Kartika_Dewi_Malioboro_Yogyakarta-Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jl. Pasar Kembang No 9 Malioboro, 55271 Indonesia",
+        "hotelClass": "3.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/12/2d/79/74/superior-king.jpg",
+        "latitude": "-7.790097",
+        "longitude": "110.36539",
+        "name": "Malioboro Prime Hotel",
+        "priceRange": "Rp 375.000 - Rp 531.000",
+        "rating": "4.0",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d12677366-Reviews-Malioboro_Prime_Hotel-Yogyakarta_Region_Java.html"
+      },{
+        "address": "Jl. Pasar Kembang No.49, Sosromenduran, Gedong Tengen, in front of Tugu Railway Station, 55271 Indonesia",
+        "hotelClass": "3.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/12/b3/c9/52/suite-room.jpg",
+        "latitude": "-7.790257",
+        "longitude": "110.36331",
+        "name": "Abadi Hotel Malioboro Yogyakarta",
+        "priceRange": "Rp 469.000 - Rp 781.000",
+        "rating": "4.0",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d1465942-Reviews-Abadi_Hotel_Malioboro_Yogyakarta-Yogyakarta_Region_Java.html"
+      },
+      {
+        "address": "Jln. Matara No. 9, 55213 Indonesia",
+        "hotelClass": "2.0",
+        "image": "https://media-cdn.tripadvisor.com/media/photo-o/12/8e/27/71/nueve-malioboro-hotel.jpg",
+        "latitude": "-7.795935",
+        "longitude": "110.368614",
+        "name": "Nueve Malioboro Hotel Yogyakarta",
+        "priceRange": "Rp 281.000 - Rp 766.000",
+        "rating": "4.0",
+        "webUrl": "https://www.tripadvisor.co.id/Hotel_Review-g294230-d6414912-Reviews-Nueve_Malioboro_Hotel_Yogyakarta-Yogyakarta_Region_Java.html"
+      }
+]

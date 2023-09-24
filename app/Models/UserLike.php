@@ -20,7 +20,13 @@ class UserLike extends Model
         'image',
         'url_maps',
         'jenis_wisata',
-        'deskripsi'
+        'deskripsi',
+        'descitinerary',
+        'anak',
+        'lansia',
+        'isnight',
+        'htm_weekend',
+        'htm_weekday'
     ];
 
     // Define the relationship with the User model
