@@ -869,6 +869,7 @@ class ComposerStaticInite3136f3e169dccd5aaf6b95635061430
         'App\\Models\\Admin' => __DIR__ . '/../..' . '/app/Models/Admin.php',
         'App\\Models\\Artikels' => __DIR__ . '/../..' . '/app/Models/Artikels.php',
         'App\\Models\\Event' => __DIR__ . '/../..' . '/app/Models/Event.php',
+        'App\\Models\\History' => __DIR__ . '/../..' . '/app/Models/History.php',
         'App\\Models\\Kategori' => __DIR__ . '/../..' . '/app/Models/Kategori.php',
         'App\\Models\\Tags' => __DIR__ . '/../..' . '/app/Models/Tags.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

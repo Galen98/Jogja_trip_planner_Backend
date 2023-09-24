@@ -14,8 +14,24 @@ class CreateUserLikesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('wisata_id');
+            $table->string('nama', 255)->nullable();
+            $table->integer('rating', 11)->nullable();
+            $table->string('kategori', 255)->nullable();
+            $table->string('image', 255)->nullable();
+            $table->string('url_maps', 255)->nullable();
+            $table->string('jenis_wisata', 255)->nullable();
+            $table->string('deskripsi', 255)->nullable();
+            $table->string('isnight', 255)->nullable();
+            $table->string('anak', 255)->nullable();
+            $table->string('lansia', 255)->nullable();
+            $table->string('descitinerary', 255)->nullable();
+            $table->string('htm_weekend', 255)->nullable();
+            $table->string('htm_weekday', 255)->nullable();
+            $table->string('durasi', 255)->nullable();
+            $table->string('things', 255)->nullable();
+            $table->decimal('latitude', 9, 7)->nullable();
+            $table->decimal('longitude', 10, 6)->nullable();
             $table->timestamps();
-
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }

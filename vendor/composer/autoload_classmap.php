@@ -202,6 +202,7 @@ return array(
     'App\\Models\\Admin' => $baseDir . '/app/Models/Admin.php',
     'App\\Models\\Artikels' => $baseDir . '/app/Models/Artikels.php',
     'App\\Models\\Event' => $baseDir . '/app/Models/Event.php',
+    'App\\Models\\History' => $baseDir . '/app/Models/History.php',
     'App\\Models\\Kategori' => $baseDir . '/app/Models/Kategori.php',
     'App\\Models\\Tags' => $baseDir . '/app/Models/Tags.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
