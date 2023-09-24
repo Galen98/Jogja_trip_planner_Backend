@@ -1,0 +1,27 @@
+name: Tests
+
+on: [ push, pull_request ]
+
+jobs:
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - '8.0'
+          - '8.1'
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP and install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run test suite
+        run: composer test
+
+      - name: Upload coverage results to Coveralls
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: php vendor/bin/php-coveralls -v

@@ -1,0 +1,81 @@
+name: Static Analysis
+
+on: [ push, pull_request ]
+
+jobs:
+  composer-validation:
+    name: Composer Validation
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+  coding-standards:
+    name: Coding Standards
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install --no-progress
+
+      - name: Check coding standards
+        run: composer coding-standards
+
+  phan:
+    name: Phan
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - '8.0'
+          - '8.1'
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP and install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run Phan
+        run: composer static-analysis:phan -- --no-progress-bar --target-php-version=${{ matrix.php }} --minimum-target-php-version=${{ matrix.php }}
+
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - '8.0'
+          - '8.1'
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP and install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run PHPStan
+        run: composer static-analysis:phpstan -- --no-progress
+
+  psalm:
+    name: Psalm
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php:
+          - '8.0'
+          - '8.1'
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP and install dependencies
+        uses: ./.github/actions/setup
+
+      - name: Run Psalm
+        run: composer static-analysis:psalm -- --no-progress --php-version=${{ matrix.php }}
