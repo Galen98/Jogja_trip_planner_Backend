@@ -536,6 +536,10 @@ return response()->json([
     }
     
 
+    public function cekinspirasi(){
+       $cek = \DB::table('historys')->get();
+       return response()->json($cek);
+    }
     public function rekomendasirestoGrup(){
         $restoran = \File::get(base_path('public/dbrestoran/resto.json'));
         $resto = json_decode($restoran, true);

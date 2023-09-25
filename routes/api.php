@@ -34,6 +34,7 @@ Route::apiResource('/event', App\Http\Controllers\Api\EventController::class);
 //wisata api
 Route::post('/listhotel',[App\Http\Controllers\Api\WisataController::class, 'listhotel']);
 Route::get('/cuaca',[App\Http\Controllers\Api\WisataController::class, 'cuaca']);
+Route::get('/cekinspirasi',[App\Http\Controllers\Api\WisataController::class, 'cekinspirasi']);
 Route::get('/hotelkeluarga',[App\Http\Controllers\Api\WisataController::class, 'rekomendasiHotelkeluarga']);
 Route::get('/restokeluarga',[App\Http\Controllers\Api\WisataController::class, 'rekomendasirestoKeluarga']);
 Route::get('/hotelgrup',[App\Http\Controllers\Api\WisataController::class, 'rekomendasiHotelgrup']);
