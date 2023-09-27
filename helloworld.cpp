@@ -1,6 +1,5 @@
-include <stdio.h>
+#include <stdio.h>
 
 int main(){
-    std::cout << "hello cpp";
-    return 0;
+   printf("sdsa");
 }
