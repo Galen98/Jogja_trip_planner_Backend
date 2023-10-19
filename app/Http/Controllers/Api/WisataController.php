@@ -312,7 +312,6 @@ return response()->json([
 ]);
 
     return response()->json($orderedPlaces);
-
     }
 
     public function tripKeluarga(Request $request)

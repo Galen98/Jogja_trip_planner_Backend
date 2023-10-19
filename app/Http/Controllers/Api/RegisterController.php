@@ -31,22 +31,7 @@ class RegisterController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 422);
         }
-        // $tipe=$request->tipe;
-        // if($tipe == 'family'){
-        //     $family = "1";
-        //     $backpacker = "0";
-        //     $grup = "0";
-        // }
-        // if($tipe == 'backpacker'){
-        //     $family = "0";
-        //     $backpacker = "1";
-        //     $grup = "0";
-        // }
-        // if($tipe == 'grup'){
-        //     $family = "0";
-        //     $backpacker = "0";
-        //     $grup = "1";
-        // }
+
         //create user
         $user = User::create([
             'name'      => $request->name,

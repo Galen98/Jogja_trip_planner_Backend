@@ -17,12 +17,6 @@ class LoginController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //set validation
-        // $validator = Validator::make($request->all(), [
-        //     'email'     => 'required',
-        //     'password'  => 'required'
-        // ]);
-
         $validator = Validator::make($request->all(), [
             'email'     => 'required',
             'password'  => 'required'
@@ -33,11 +27,7 @@ class LoginController extends Controller
             return response()->json($validator->errors(), 422);
         }
 
-        //get credentials from request
-        // $credentials = $request->only('email', 'password');
         $credentials = $request->only('email', 'password');
-
-        //if auth failed
         if(!$token = JWTAuth::attempt($credentials)) {
             return response()->json([
                 'success' => false,
@@ -57,13 +47,4 @@ class LoginController extends Controller
     public function refresh() {
         return $this->createNewToken(auth()->refresh());
     }
-
-    // protected function createNewToken($token){
-    //     return response()->json([
-    //         'access_token' => $token,
-    //         'token_type' => 'bearer',
-    //         'expires_in' => auth()->factory()->getTTL() * 60,
-    //         'user' => auth()->user()
-    //     ]);
-    // }
 }
